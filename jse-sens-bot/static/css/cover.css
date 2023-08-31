@@ -1,0 +1,86 @@
+/*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-secondary-bid {
+  background-color: #FF8065;
+  border-color: #FF8065;
+}
+.btn-secondary-bid:hover,
+.btn-secondary-bid:active,
+.btn-secondary-bid:visited,
+.btn-secondary-bid:focus {
+  background-color: #E52800;
+  border-color: #E52800;
+  text-shadow: none; 
+
+}
+
+
+/*.btn-secondary-bid,
+.btn-secondary-bid:hover,
+.btn-secondary-bid:focus {
+  color: #FF0000;
+  text-shadow: none; 
+}
+*/
+/*.btn-secondary-ask,
+.btn-secondary-ask:hover,
+.btn-secondary-ask:focus {
+  color: #FF0000;
+  text-shadow: none; 
+}*/
+
+.btn-secondary-ask {
+  background-color: #2ECE34;
+  border-color: #2ECE34;
+}
+.btn-secondary-ask:hover,
+.btn-secondary-ask:active,
+.btn-secondary-ask:visited,
+.btn-secondary-ask:focus {
+  background-color: #00D208;
+  border-color: #00D208;
+  text-shadow: none; 
+  
+
+}
+
+/*
+ * Base structure
+ */
+
+body {
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+
+/*
+ * Header
+ */
+
+.nav-masthead .nav-link {
+  color: rgba(255, 255, 255, .5);
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}

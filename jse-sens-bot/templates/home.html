@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello home</title>
+
+
+    <script src="/jse-sens-bot/static/js/axios.min.js"></script>
+    <script src="/jse-sens-bot/static/js/pyramid.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="/jse-sens-bot/static/lib/bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+
+
+
+
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h1 class="display-4"> Reviewing JSE SENS Announcements </h1>
+        <p class="lead"> with Sarcastic AI</p >
+
+        <hr class="my-4">
+
+
+
+
+    </div>
+
+
+    <div>
+        {% for a_file in jse_sens %}
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ a_file.text }} </h5>
+                    <button onclick="sendTextToAPI('{{ a_file.akey }}' , '{{ a_file.text }}' , '{{ a_file.body }}' , 'outputSpan{{ loop.index0 }}')">Sarcastic</button>
+                    <button onclick="sendTextToAPI2('{{ a_file.akey }}' , '{{ a_file.text }}' , '{{ a_file.body }}' , 'outputSpan{{ loop.index0 }}')">Serious</button>
+                    <!-- Span to hold the API response -->
+                    <p class="card-text">
+
+                    <span id="outputSpan{{ loop.index0 }}"></span>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+    <script>
+
+
+        function sendTextToAPI2(apiKey, text, bodyText,  outputSpanId) {
+            var apiFetchObj = Example.pyramid();
+
+            var textClean = text.replace(/["']/g, "");
+            var bodyTextClean = bodyText.replace(/["']/g, "");
+
+
+            var sNims = `You are a serious equities trader who is always looking to the current news to find tradable signals. Your job is to identify high quality trading signals in the following SENS announcement from the JSE:
+                '''
+                <title>
+                ${textClean}
+                </title>
+                <body>
+                ${bodyTextClean}
+                </body>
+                '''
+            `
+            console.log("Prompt:", sNims);
+
+            var payload = { 
+                model: "gpt-4",
+                messages: [{"role": "user", "content": sNims}],
+                temperature: 0.7
+            };
+
+            var onCompletion = function(response) {
+                console.log(response);
+                // Assuming the desired content is in response.data.choices[0].message.content
+                 // Adjust as necessary based on the structure of your API response.
+                 document.getElementById(outputSpanId).innerText = response.data.choices[0].message.content;
+            };
+            
+            var onError = function(response, body) {
+                console.error(response, body);
+            };
+
+            apiFetchObj.apiPost(payload, apiKey, onCompletion, onError);
+        }
+
+        function sendTextToAPI(apiKey, text, bodyText,  outputSpanId) {
+            var apiFetchObj = Example.pyramid();
+
+            var textClean = text.replace(/["']/g, "");
+            var bodyTextClean = bodyText.replace(/["']/g, "");
+            var sNims = `You are the head of global markets for Peresec Capital. You have made a lot of money throughout your career and you are always looking for opportunities to examine and critique the current news. You are also extremely sarcastic and love to brag about your time trading rolls whenever you find the right moment. Your job is to provide a 10 line summery of the following SENS announcement from the JSE:
+                '''
+                <title>
+                ${textClean}
+                </title>
+                <body>
+                ${bodyTextClean}
+                </body>
+                '''
+            `
+
+
+            console.log("Prompt:", sNims);
+
+            var payload = { 
+                model: "gpt-3.5-turbo-16k",
+                messages: [{"role": "user", "content": sNims}],
+                temperature: 0.7
+            };
+
+            var onCompletion = function(response) {
+                console.log(response);
+                // Assuming the desired content is in response.data.choices[0].message.content
+                 // Adjust as necessary based on the structure of your API response.
+                 document.getElementById(outputSpanId).innerText = response.data.choices[0].message.content;
+            };
+            
+            var onError = function(response, body) {
+                console.error(response, body);
+            };
+
+            apiFetchObj.apiPost(payload, apiKey, onCompletion, onError);
+        }
+
+    </script>
+
+    <script src="/jse-sens-bot/static/js/bootstrap-4.0.0-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+</body>
+</html>

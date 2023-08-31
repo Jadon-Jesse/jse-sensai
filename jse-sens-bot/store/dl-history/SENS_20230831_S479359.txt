@@ -1,0 +1,320 @@
+                                                                                  
+                                                                                  
+          Clientèle Limited                                                       
+          (Registration number 2007/023806/06)                                    
+          Share code: CLI                                                         
+          ISIN: ZAE000117438                                                      
+                                                                                  
+          Short-form announcement  of Condensed results                           
+                                                                                  
+          For the year ended 30 June 2023                                         
+                                                                                  
+          Dividends declared increased by 4% to 125.00 cents per share            
+          Diluted headline earnings per share increased by 15% to 145.32 cents    
+          Return on average shareholders' interest of 43%                         
+          Recurring Embedded Value Earnings of R663.1 million*                    
+          Recurring Return on Embedded Value of 12%*                              
+          Value of New Business of R244.9 million*                                
+          *Risk Discount Rate 14.1% (2022: 13.8%)                                 
+                                                                                  
+          Commentary                                                              
+                                                                                  
+                                                                                  
+          INTRODUCTION                                                            
+                                                                                  
+          The Clientèle Group (“the Group”) has produced a reasonable set of results for the year
+          against the backdrop of a continuing challenging trading environment, characterised by low
+          economic growth, ongoing load-shedding and challenges in the premium collections
+          environment.                                                            
+                                                                                  
+          The previously reported higher than expected policyholder withdrawals continued throughout
+          the year. Instability in the collections environment and in the services provided by a third
+          party service provider negatively impacted collection success, and consequently increased
+          withdrawals.                                                            
+          The Group remains in a sound solvency and liquidity position.           
+                                                                                  
+          The Group achieved an investment return of 10.5% (2022: 4.2%) from its investment
+          portfolios.                                                             
+                                                                                  
+          Take up of the stand-alone Clientèle Rewards product has been extremely encouraging.
+                                                                                  
+          Increased use of the Clientèle Application (“the Clientèle App”) which serves as a platform
+          for sales capture by a number of the distribution channels, and is utilised by our clients for
+          basic policy administration as well as to access Clientèle Rewards and Clientèle Mobile is
+          positive.                                                               
+                                                                                  
+          OPERATING RESULTS                                                       
+          Group Statement of Comprehensive Income                                 
+          Net insurance premiums for the year of R2.02 billion decreased slightly (by 1.7%) in
+          comparison to the prior year (2022 restated: R2.05 billion). Growth was impacted by the
+          higher than expected withdrawals mentioned above.                       
+                                                                                  
+          Revenue from contracts with customers of R342.0 million was 59% higher than last year
+          (2022 restated: R214.4 million), on the back of high production of co-branded single
+          premium products, an increase in revenue from the stand-alone rewards product and the
+          consolidation of revenue from Direct Rewards for the 2023 financial year.
+                                                                                  
+          The attrition rate on co-branded single premium business was reduced from 20% to 3% as
+          there is now sufficient historical information in respect of the behaviour of this book of
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+          business to set an assumption based on experience. The net profit increase as a
+          consequence of this change was R16.5 million.                           
+                                                                                  
+          Recurring premium savings policies sold through the Telesales channels that were
+          previously accounted for under IFRS4 have now been accounted for under IFRS 9, which
+          delays the emergence of profits for this block of business, and the comparative numbers
+          have been restated, reducing the 2022 profit after tax by R15.1 million.
+                                                                                  
+          Net insurance benefits and claims of R387.7 million were 2% higher than the R380.8 million
+          in respect of the prior year.                                           
+                                                                                  
+          The full explicit COVID-19 risk reserve, net of reinsurance, of R26.2 million was released
+          during the year.                                                        
+          Operating expenses (including acquisition expenses) of R1.7 billion (restated 2022: R1.4
+          billion), were 20% higher than last year. The main reason for this was an increase in
+          acquisition costs which includes a once-off upfronting of commission (R100 million) in
+          respect of a funeral parlour insurance transaction in the current year and an increase of R19
+          million in acquisition costs in respect of the increased production of single premium policies.
+                                                                                  
+          Due to a high client affinity with certain funeral parlours, and corresponding lower withdrawal
+          experience on this business, a portion of future funeral parlour profits have been recognised
+          during the year as a result of not eliminating negative reserves on this class of business.
+          This resulted in an increase in profit after tax of R213.6 million (and a corresponding
+          reduction in Value of In-force and a negligible impact on the Embedded Value (“EV”)).
+                                                                                  
+          The above translates into headline earnings for the Group increasing by 15% to R487.7
+          million (2022 restated: R425.7 million) resulting in a return on average shareholders’
+          interests of 43% (2022 restated: 40%). Diluted headline earnings per share of
+          145.32 cents (2022 restated: 126.8 cents) were 15% higher than last year.
+                                                                                  
+          Group Embedded Value and Value of New Business                          
+          The Group EV at 30 June 2023 increased by 1% from last year and was R5.9 billion (30
+          June 2022: R5.8 billion), after the payment of the annual dividend of R402.4 million in
+          September 2022, despite the Risk Discount Rate (“RDR”) of 14.1% p.a. having increased
+          from 13.8% p.a. at 30 June 2022. Recurring Embedded Value Earnings (“REVE”) of R663.1
+          million were negatively impacted by withdrawal losses of R245.4 million, resulting in a
+          reduction of 9% in comparison to the prior year result of R724.9 million.
+                                                                                  
+          The Value of New Business (“VNB”) for the year of R244.9 million (RDR of 14,1% p.a.)
+          (2022: R290.6 million (RDR of 13.8% p.a.)) decreased by 16% over last year. In order to be
+          in line with the rest of the industry, reinstatements have been removed from new business
+          and treated as “negative withdrawals”.                                  
+                                                                                  
+          As a result, reinstatements are no longer included in the VNB but the impact of
+          reinstatements is included as a negative decrement in the VIF. This methodology change
+          also affected the withdrawal and expense assumptions for the in-force and new business
+          calculations. Furthermore, a change was made (by one of the Reinsurers) to the shape of
+          the reinsurance rates curve. These once-off changes had a negative EV impact of R158.3
+          million and a negative impact on VNB.                                   
+                                                                                  
+          The EV and VNB sensitivities are illustrated in the Group EV results on page 22.
+                                                                                  
+          The Present Value of New Business premiums increased due to large volumes of Single
+          Premium investment business written. The relatively low profit margin on this block of
+          business has resulted in a marked decrease (to 4.8%) in the overall New Business profit
+          margin.                                                                 
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+          Other than profit recognition on some of the funeral parlour business mentioned above, the
+          Group follows a conservative accounting practice of eliminating negative reserves. As
+          acquisition costs are expensed upfront, the recovery of these costs and the profits are
+          deferred over the policy life. The present value of this discretionary margin amounts to R2.1
+          billion (2022: R2.5 billion).                                           
+                                                                                  
+          SEGMENT RESULTS                                                         
+                                                                                  
+          Clientèle Life – Long-term insurance                                    
+                                                                                  
+          Clientèle Life’s Long-term insurance segment remains the major contributor to the Group’s
+          performance and aided by the good quality funeral parlour intermediated business recorded
+          a 33% increase in net profit for the year to R413.7 million (2022 restated: R310.9 million)
+          despite the impact of the challenging operating environment and policy withdrawals, as
+          previously referred to.                                                 
+          Clientèle Life’s total VNB for the year of R157.5 million (2022: R233.2 million) has reduced
+          by 32%. Clientèle Life recorded REVE of R466.9 million (2022: R531.7 million), a decrease
+          of 12%. The Recurring Return on EV was 11.7% p.a (2022: 13.2% p.a).     
+                                                                                  
+          Clientèle General Insurance (Clientèle Legal) – Short-term insurance    
+                                                                                  
+          Clientèle Legal’s net profit for the year of R85.4 million (2022: R94.9 million) decreased by
+          10% on last year, impacted by the challenging operating environment and policy
+          withdrawals. Clientèle Legal’s VNB was R67.9 million (2022: R49.5 million) and it recorded
+          REVE of R171.0 million (2022: R182.2 million) and a Recurring Return on EV of 13% (2022:
+          13.9%). Management is focusing on returning the business to its growth path through
+          increasing quality production.                                          
+                                                                                  
+          CBC Rewards, Clientèle Mobile and Direct Rewards                        
+                                                                                  
+          CBC Rewards, Clientèle Mobile and Direct Rewards’ combined net loss for the year was
+          R4.1 million (2022: R2.0 million net profit) on the back of large volumes of new business and
+          associated acquisition costs. The segment produced VNB of R19.5 million (2022: R7.9
+          million). Direct Rewards is accounted for as a subsidiary effective from 1 July 2022.
+                                                                                  
+          OUTLOOK                                                                 
+                                                                                  
+          In this challenging environment, the Group remains focused on Treating its Clients Well
+          (“TCW”) and providing products and services that meet their needs and will continue to
+          improve on the delivery of them to the market conveniently and efficiently.
+                                                                                  
+          Management continues to be agile and responsive to challenges that arise and to take
+          advantage of the opportunities that present themselves.                 
+                                                                                  
+          Investment of time and effort in the Clientèle Rewards, Clientèle App and Clientèle Mobile
+          initiatives aligns with the Group’s focus on “shared value”.            
+                                                                                  
+          With the ongoing challenges within the premium collections environment, management
+          continue to implement initiatives to mitigate the impacts of high withdrawals. There are
+          however encouraging signs of better stability in the collections environment.
+                                                                                  
+          The Group will, as usual, continue to focus on increasing production of quality business
+          across all of its distribution channels.                                
+                                                                                  
+          A tight control environment will continue to be maintained and improved, whilst every effort
+          will be made to maintain and improve business efficiencies.             
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+          The Board remains optimistic that there are opportunities for growth and value creation over
+          time in the Group’s target market.                                      
+                                                                                  
+          Dividend Declared                                                       
+                                                                                  
+          Notice is hereby given that the Directors have declared a final gross dividend of 125.00 cents
+          (2022: 120.00 cents) per share on 31 August 2023 for the year ended 30 June 2023.
+          The Board of Clientèle Limited confirms that the Group will satisfy the solvency and liquidity
+          tests immediately after completion of the dividend distribution. The dividend will be subject to
+          dividends tax. In accordance with the JSE Listings Requirements, the following additional
+          information is disclosed:                                               
+                                                                                  
+            •  The dividend has been declared out of income reserves;             
+            •  The local dividends tax rate is 20% (twenty percent) (2022: twenty percent);
+            •  The gross local dividend amount is 125.00 cents (2022: 120.00 cents) per ordinary
+               share for shareholders exempt from the dividends tax;              
+            •  The net local dividend amount is 100.00 cents (2022: 96.00 cents) per ordinary share
+               for shareholders liable to pay the dividends tax;                  
+            •  The local dividends tax amount is 25.00 cents (2022: 24.00 cents) per ordinary share
+               for shareholders liable to pay the dividend withholding tax;       
+            •  Clientèle Limited currently has 335,321,768 (2022: 335,321,768) ordinary shares in
+               issue.                                                             
+                                                                                  
+          Clientèle Limited’s income tax reference number is 9465071166.          
+                                                                                  
+          In compliance with the requirements of STRATE Limited, the electronic settlement and
+          custody system used by the JSE Limited, the following salient dates for the payment of the
+          dividend are applicable:                                                
+          Declaration date Thursday, 31 August 2023                               
+          Last day to trade Tuesday, 19 September 2023                            
+          Shares commence trading “ex” dividend Wednesday, 20 September 2023      
+          Record date Friday, 22 September 2023                                   
+          Payment date Tuesday, 26 September 2023                                 
+                                                                                  
+                                                                                  
+          Share certificates may not be dematerialised or rematerialised between Wednesday, 20
+          September 2023 and Friday, 22 September 2023, both days inclusive.      
+                                                                                  
+          By order of the Board                                                   
+                                                                                  
+          GQ Routledge        BW Reekie                                           
+          Chairman            Managing Director                                   
+          Johannesburg                                                            
+                                                                                  
+                                                                                  
+          31 August 2023                                                          
+                                                                                  
+                                                Year              Year            
+                                              ended 30    %     ended 30          
+                                              June 2023 change  June 2022         
+                                                                                  
+           Net profit for the year (R'000)     490,059   17%     420,353*         
+           Headline earnings per share (cents) 145,44    15%     126,94*          
+           Earnings per share (cents)          145,44    16%     125,36*          
+           EV at the end of the year (R'000)  5,887,476   1%    5,807,067         
+           Recurring Return on Embedded Value (%) 12.3   -1%      13.3            
+           Value of New Business for the year (R'000) 244,873 -16% 290,575        
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+           Recurring EV Earnings for the year (R’000) 663,091 -9% 724,913         
+          *restated                                                               
+                                                                                  
+          Short-form announcement  dated 31 August 2023                           
+          This short-form announcement is the responsibility of the Directors and is only a summary of
+          the information in the full announcement and does not contain the full or complete details.
+          The full announcement can be found through this JSE Cloudlink:          
+          (https://senspdf.jse.co.za/documents/2023/jse/isse/CLI/CLI2023.pdf) and on the Company's
+          weblink: (https://clientele.co.za/sens-announcements/).                 
+                                                                                  
+          This short-form announcement has in itself not been reviewed by the Company’s auditors
+          but has been extracted from the reviewed condensed consolidated financial statements. The
+          Company’s auditor’s review conclusion report can be obtained from the Company’s website.
+                                                                                  
+          The condensed consolidated results for the year ended 30 June 2023 have been reviewed,
+          in terms of International Standards on Review Engagements, (ISRE 2410), by Deloitte &
+          Touche (South Africa), who expressed an unmodified review conclusion.   
+                                                                                  
+          Any investment decisions should be based on consideration of the full announcement.
+          Comprehensive commentary including regulatory requirements is contained in the full
+          announcement.                                                           
+                                                                                  
+          Sponsor: PricewaterhouseCoopers Corporate Finance Proprietary Limited   
+                                                                                  
+          Registered office: Clientèle Office Park, Cnr Rivonia and Alon Roads, Morningside,
+          Johannesburg 2196, South Africa                                         
+          PO Box 1316, Rivonia 2128, South Africa                                 
+                                                                                  
+          Transfer secretaries: Computershare Investor Services Proprietary Limited, First floor,
+          Rosebank Towers, 15 Biermann Avenue, Rosebank, 2106, South Africa PO Box 61051,
+          Marshalltown 2107, South Africa                                         
+                                                                                  
+          Directors:                                                              
+          GQ Routledge BA, LLB (Chairman); BW Reekie BSc (Hons), FASSA* (Managing Director);
+          GK Chadwick MAgric, MBA (Alternate to ADT Enthoven); ADT Enthoven BA, PhD (Political
+          Science); MG Cownie CA(SA)*; H Louw BCom(Hons), FASSA*; PG Nkadimeng BSC
+          Statistics and Economics; BA Stott CA(SA); RDT Tabane BA, M.Phil, MBA*; RD Williams
+          BBusSc(Hons), FASSA; HP Mayers BSc(Hons), FASSA                         
+          (*Executive Director)                                                   
+                                                                                  
+          Company secretary: EJ Smit LLB                                          
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  

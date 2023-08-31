@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html class="h-100">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>App1 - FXMM Demo</title>
+
+
+
+
+    <link rel="stylesheet" href="/hello/static/lib/bootstrap/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+
+
+
+    <!-- <link rel="stylesheet" href="/hello/static/lib/jquery/jquery-3.6.0.min.js"> -->
+    <!-- <link rel="stylesheet" href="/hello/static/lib/socketio/socket.io-client-4.5.0/dist/socket.io.js"> -->
+
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script> -->
+
+    <meta name="theme-color" content="#712cf9">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .list-group{
+          max-height: 100px;
+          height: 100px;
+          /*margin-bottom: 10px;*/
+          overflow-y:auto;
+          -webkit-overflow-scrolling: touch;
+          /*position: absolute;
+          top: 120px;
+          bottom: 100px;
+          left: 180px;
+          width: 50%;
+          overflow-y: scroll;*/
+      }
+    </style>
+    
+    <link rel="stylesheet" href="/hello/static/css/cover.css">
+
+
+
+
+
+</head>
+<body class="d-flex h-100 text-center text-bg-dark">
+<!--     <h1>FXMM-Demo WebSocket Test</h1>
+
+    <h2>Send:</h2>
+    <form id="broadcast" method="POST" action='#'>
+        <input type="text" name="broadcast_data" id="broadcast_data" placeholder="Message">
+        <input type="submit" value="Broadcast">
+    </form>
+    <h2>Receive:</h2>
+    <div id="log"></div> -->
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h3 class="text-center mb-0">App 1 - Demo</h3>
+        </div>
+      </header>
+
+      <main>
+        <h1>USDZAR SPOT</h1>
+        <!-- <p class="lead">USDZAR SPOT</p> -->
+        <button id="bidBtn" type="button" class="btn btn-outline-danger btn-lg" value="BID">BID</button>
+        <button id="askBtn" type="button" class="btn btn-outline-success btn-lg" value="ASK">ASK</button>
+
+
+      </main>
+
+      <footer class="footer mt-auto py-3">
+        <div class="container">
+            <h2>Order Message Log:</h2>
+            <div class="list-group" >
+                <ul id="log" class="list-group list-group-flush text-bg-dark">
+                </ul>
+            </div>
+        </div>
+      </footer>
+
+
+<!--       <footer class="mt-auto text-white-50">
+            <h2>Receive:</h2>
+            <div class="list-group" id="log">
+                <ul>
+                    <li> First </li>
+                </ul>
+            </div>
+      </footer> -->
+    </div>
+
+
+    <!-- SCRIPTS  -->
+    <script type="text/javascript" src="/hello/static/lib/jquery/jquery-3.6.0.min.js"></script>
+    
+    <script type="text/javascript" src="/hello/static/lib/socketio/socket.io-client-4.5.0/dist/socket.io.js"></script>
+
+    <script type="text/javascript" src="/hello/static/lib/bootstrap/bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+
+            function checkEmpty(v) {
+
+                var type = typeof v;
+                if (type === 'undefined') {
+                    return true;
+                }
+                if (type === 'boolean') {
+                    return !v;
+                }
+                if (v === null) {
+                    return true;
+                }
+                if (v === undefined) {
+                    return true;
+                }
+                if (v instanceof Array) {
+                    if (v.length < 1) {
+                        return true;
+                    }
+                } else if (type === 'string') {
+                    if (v.length < 1) {
+                        return true;
+                    }
+                    if (v === '0') {
+                        return true;
+                    }
+                } else if (type === 'number') {
+                    if (v === 0) {
+                        return true;
+                    }
+                }
+                return false;
+
+            }
+
+            var lastBid = 0.0;
+            var lastAsk = 0.0;
+
+
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format, relative to the current page:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            // console.log(Window.location);
+            var socket = io({path:"/hello/socket.io/", rememberTransport: false});
+
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            socket.on('connect', function() {
+                socket.emit('my_event', {data: 'I\'m connected!'});
+
+                // var tst = {
+                //     ticker: "ZAR Curncy",
+                //     BID: 11,
+                //     ASK: null
+                // };
+                // console.log("Testing", tst);
+                // console.log("BID check empyty", checkEmpty(tst.BID));
+                // console.log("ASK check empyty", checkEmpty(tst.ASK));
+
+            });
+
+
+            socket.on('bbg_live_usdzar_curncy_data', function(msg) {
+                // console.log(msg);
+                // console.log(typeof msg);
+                var data = JSON.parse(msg.data);
+                // console.log(data);
+                // $('#log').append('<p>Received: ' + msg.data + '</p>');
+                if(checkEmpty(data.BID) == false) {
+                    lastBid = data.BID;
+                }
+                if(checkEmpty(data.ASK) == false) {
+                    lastAsk = data.ASK;
+                }
+                var bText = "BID: " + lastBid;
+                var aText = "ASK: " + lastAsk;
+                $('#bidBtn').text(bText);
+                $('#askBtn').text(aText);
+            });
+
+            socket.on('my response', function(msg) {
+                $('#log').prepend('<li class="list-group-item text-bg-dark">OrderEntry: ' + msg.data + ' [client:'+msg.clid+']' +'</li>');
+            });
+
+            // $('form#emit').submit(function(event) {
+            //     socket.emit('my event', {data: $('#emit_data').val()});
+            //     return false;
+            // });
+            // $('form#broadcast').submit(function(event) {
+            //     socket.emit('my broadcast event', {data: $('#broadcast_data').val()});
+            //     return false;
+            // });
+
+            // broadcast clicked value
+            $('#bidBtn').click(function(event){
+                var currentBid = $("#bidBtn").html();
+
+                console.log("Clicked bid", currentBid);
+                socket.emit('my broadcast event', {data: currentBid});
+
+            });
+
+            $('#askBtn').click(function(event){
+                var currentAsk = $("#askBtn").html();
+
+                console.log("Clicked ask", currentAsk);
+                socket.emit('my broadcast event', {data: currentAsk});
+
+            });
+
+
+
+            // $('form#disconnect').submit(function(event) {
+            //     socket.emit('disconnect_request');
+            //     return false;
+            // });
+
+        });
+    </script>
+
+
+
+</body>
+</html>
