@@ -14,7 +14,7 @@ import urllib.parse
 
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
-from appsecrets import PROXY_DICT
+# from appsecrets import PROXY_DICT
 
 # from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -139,7 +139,7 @@ def scrape_sel_edge():
         WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, "sens__link")))
     except Exception as e:
         print(f"Exception while looking for elem: {e}")
-        return "Loading took too much time!"
+        # return "Loading took too much time!"
 
     print("Getting soup")
     soup = BeautifulSoup(driver.page_source, "lxml")
