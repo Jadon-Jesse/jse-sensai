@@ -15,8 +15,8 @@ Dev Blog
 appsecrets.py
 # pyvenv.cfg
 #ignore credentials
-*.txt
-*.pdf
+# *.txt
+# *.pdf
 
 aes.txt
 xes.txt
