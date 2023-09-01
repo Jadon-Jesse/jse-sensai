@@ -197,6 +197,7 @@ def scrape_sel_edge():
 
 
         announcement = {
+            'akey':API_KEY,
             'text': tag_text,
             'href': jse_url,
             'body':pages_string
@@ -204,6 +205,33 @@ def scrape_sel_edge():
         }
         sens_announcements.append(announcement)
         just_text_ls.append(tag_text)
+
+    # if the announcements are empty for the day - use old one
+    if len(sens_announcements) == 0:
+        print('using old sens')
+        old_files = stor_pth_hist.glob("*.txt")
+        num_old = 10
+        for (i, oldf) in enumerate(old_files):
+            if i>num_old:
+                break
+            pages_string = ""
+
+            print(f"file: {oldf.stem} already downloaded")
+            # dl_file = filename_pdf
+            with open(oldf, encoding='utf-8') as f:
+              # pages_string = " ".join([l.rstrip("\n") for l in f]) 
+              pages_string = " ".join([ clean_str(l) for l in f]) 
+
+            announcement = {
+                'akey':API_KEY,
+                'text': oldf.stem,
+                'href': oldf.stem,
+                'body':pages_string
+
+            }
+            sens_announcements.append(announcement)
+
+
 
             
     # driver.quit()
@@ -215,18 +243,11 @@ def scrape_sel_edge():
 @app.route("/")
 def hello_world():
 
-    # js_links, just_text = scrape_sel_edge()
+    js_links, just_text = scrape_sel_edge()
 
     print("DONE SCRAPING - GOT LINKS")
-    js_links = []
+    # js_links = []
     return render_template('home.html', jse_sens = js_links)
-
-
-# # main driver function
-# if __name__ == "__main__":
-#     # run() method of Flask class runs the application
-#     # on the local development server.
-#     app.run(debug=True)
 
 
 if __name__ == '__main__':
