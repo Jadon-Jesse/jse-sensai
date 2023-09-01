@@ -14,7 +14,12 @@ import urllib.parse
 
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
-# from appsecrets import PROXY_DICT
+from appsecrets import (
+    API_KEY,
+    APP_HOST_IP,
+    APP_HOST_PORT,
+    APP_GECKO_DRIVER
+)
 
 # from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -28,8 +33,8 @@ from urllib.parse import urlparse, unquote
 import base64
 
 # HOST = os.environ.get("APP1_HOST_IP")
-HOST = "127.0.0.1"
-PORT = "5000"
+HOST = APP_HOST_IP
+PORT = APP_HOST_PORT
 
 stor_pth_hist = Path(".") / Path("store") / Path("dl-history")
 stor_pth_hist.mkdir(parents = True, exist_ok = True)
@@ -39,7 +44,7 @@ options.add_argument("--headless")
 
 # options.headless = True  # Run Firefox in headless mode
 
-ff_driver_path = Path("D:\\DWorkspace\\DPlay\\jse-sens-bot\\jse-sens-bot\\webdrivers\\geckodriver-v0.33.0-win64\\geckodriver.exe")
+ff_driver_path = APP_GECKO_DRIVER
 ff_service = Service(ff_driver_path)
 driver = webdriver.Firefox(service=ff_service, options=options)
 
@@ -116,17 +121,7 @@ def clean_str(dirty):
 def scrape_sel_edge():
     url = "https://clientportal.jse.co.za/communication/sens-announcements"
 
-    print("Using edge")
-
-    # ch_path = Path('C:\\Users\\nb308445\\Workspace\\Play\\hello-nims\\hello-nims\\edgedriver_win64\\msedgedriver.exe')
-    # service = Service(ch_path)
-
-    # opt = Options()
-    # opt.add_argument("--headless")
-
-    # driver = webdriver.Edge(service=service, options=opt)
-    # driver = webdriver.Edge(service=service)
-
+    print("Using gecko")
     driver.get(url)
 
     html = driver.page_source
@@ -220,10 +215,10 @@ def scrape_sel_edge():
 @app.route("/")
 def hello_world():
 
-    js_links, just_text = scrape_sel_edge()
+    # js_links, just_text = scrape_sel_edge()
 
     print("DONE SCRAPING - GOT LINKS")
-    # js_links = []
+    js_links = []
     return render_template('home.html', jse_sens = js_links)
 
 
