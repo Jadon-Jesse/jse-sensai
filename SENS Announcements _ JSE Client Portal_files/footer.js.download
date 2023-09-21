@@ -1,0 +1,15 @@
+$(document).ready(function (){
+
+    $(".footer_related_dropdown").click(function (e) {
+        $(".footer_dropdown").toggle(1000);
+    });
+
+//     $(".footer_related_dropdown").mouseleave(function (e) {
+        
+//         $(".footer_dropdown").hide(1000);
+//     });
+
+//     $(".footer_related_dropdown").mouseenter(function (e) {
+//         $(".footer_dropdown").show(1000);
+//     });
+});

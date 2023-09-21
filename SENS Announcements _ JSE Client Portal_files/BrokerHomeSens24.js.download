@@ -1,0 +1,233 @@
+﻿var issuerMasterId = location.search.split('issuermasterid=')[1];
+var setTitle = location.search.split('name=')[1];
+var tempCompanies = [];
+
+function DisplayData(data) {
+    $("#announcements").empty();
+
+    $.each(data, function (key, value) {
+        var announcementReferenceNumber = value.AnnouncementReferenceNumber;
+        var acknowledgeDateTime = new Date(parseInt(value.AcknowledgeDateTime.substr(6)));
+        var flashHeadline = value.FlashHeadline;
+        var pdfPath = value.PDFPath;
+
+        var issuers;
+
+        if (value.Issuers) {
+            if (value.Issuers.length < 2) {
+                issuers = capitalize(value.Issuers[0].IssuerLongName.toLowerCase());
+            }
+            else {
+                for (var i in value.Issuers) {
+                    if (i == 0) {
+                        issuers = capitalize(value.Issuers[i].IssuerLongName.toLowerCase());
+                    }
+                    else {
+                        issuers += ", " + capitalize(value.Issuers[i].IssuerLongName.toLowerCase());
+                    }
+                }
+            }
+        }
+        else{
+            issuers = setTitle;
+        }
+
+        var str = "<li>";
+        str += '<a href="' + pdfPath + '" target="_blank" class="sens__link fz14">' + flashHeadline + '</a>' +
+            '<p class="fz14">' + announcementReferenceNumber + ' - ' + acknowledgeDateTime.format("dd/MM/yyyy HH:mm") + ' | ' + issuers + '</p>' +
+            '<div class=" margin-tb-10">';
+        str += "</li>";
+        $("#announcements").append(str);
+    })
+}
+
+function getTodaySens() {
+    if (issuerMasterId) {
+        $('.lastSevenInput').prop("disabled", true);
+        var request = $.ajax({
+            type: "POST",
+            url: "/_vti_bin/JSE/SENSService.svc/GetSensAnnouncementsByIssuerMasterId",
+            contentType: "application/json;",
+            dataType: "json",
+            data: JSON.stringify({ issuerMasterId: issuerMasterId })
+        });
+
+        request.success(function (data) {
+            try {
+                setTitle = setTitle.substring(0, setTitle.indexOf('&'));
+                setTitle = setTitle.replace(/%20/g, ' ');
+                setTitle = setTitle.split(' ').map(capitalize).join(' ');
+                $('.SensLabel').text(setTitle + ' SENS Announcements');
+                DisplayData(data.GetSensAnnouncementsByIssuerMasterIdResult);
+
+            } catch (e) { }
+        });
+
+        request.error(function () { });
+    } else {
+        $('.lastSevenInput').prop("disabled", false);
+        var request = $.ajax({
+            type: "POST",
+            url: "/_vti_bin/JSE/SENSService.svc/GetTodaySensAnnouncements",
+            contentType: "application/json;",
+            dataType: "json",
+            data: JSON.stringify({ issuerMasterId: issuerMasterId })
+        });
+
+        request.success(function (data) {
+            try {
+                DisplayData(data.GetTodaySensAnnouncementsResult);
+
+            } catch (e) { }
+        });
+
+        request.error(function () { });
+    }
+}
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function getLastSevenDays() {
+    var request = $.ajax({
+        type: "POST",
+        url: "/_vti_bin/JSE/SENSService.svc/GetLastSevenDaysSensAnnouncements",
+        contentType: "application/json;",
+        dataType: "json",
+        data: JSON.stringify({ issuerMasterId: issuerMasterId })
+    });
+
+    request.success(function (data) {
+        try {
+            DisplayData(data.GetLastSevenDaysSensAnnouncementsResult);
+        } catch (e) { }
+    });
+
+    request.error(function () { });
+
+}
+
+function ShowAll() {
+    //this does not work in IE.....sigh
+    //$(".liSearch").show();
+    $(".liSearch").each(function (index, value) {
+        $(this).show();
+    })
+}
+
+//The Search Functionality
+function searchSens() {
+    // Declare variables
+
+    //rewritten - quick solution
+    var searchVal = $("#myInput").val();
+
+    //this does not work in IE.....sigh
+    //$(".liSearch").hide();
+
+    $(".liSearch").each(function (index, value) {
+        $(this).hide();
+    })
+
+    if (searchVal.length > 0) {
+        $(".liSearch a").each(function (index, value) {
+            //this does not work in IE.....sigh
+            // if ($(this).text().toLowerCase().trim().includes(searchVal.toLowerCase().trim())) {
+            //     $(this).parent().show();
+            // }
+            var itemTxt = $(this).text().toLowerCase().trim();
+            searchVal = searchVal.toLowerCase().trim();
+            if (itemTxt.indexOf(searchVal) > -1) {
+                $(this).parent().show();
+            }
+        })
+    } else {
+        ShowAll();
+    }
+}
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+var toggle = 0;
+
+function lastSeven() {
+    if (toggle == 0) {
+        // document.getElementById("dropbtn").innerHTML = "Last Seven Days        <i class='fa fa-check-square'>";
+        $('.SensLabel').text("Last Seven days SENS announcements");
+        $('.lastSevenInput').val("Todays SENS");
+        toggle = 1;
+        document.getElementById("announcements").innerHTML = "Please wait ...";
+        getLastSevenDays();
+    } else {
+        // document.getElementById("dropbtn").innerHTML = "Last Seven Days        <i class='fa fa-square'>";
+        $('.SensLabel').text('Latest SENS announcements');
+        $('.lastSevenInput').val("Last Seven Days");
+        toggle = 0;
+        document.getElementById("announcements").innerHTML = "Please wait ...";
+        getTodaySens();
+    }
+}
+
+function getIssuers() {
+    // $('#headerSENS').text('SENS Announcements');
+    var request = $.ajax({
+        type: 'POST',
+        url: '/_vti_bin/JSE/CustomerRoleService.svc/GetAllIssuers',
+        contentType: 'application/json;',
+        dataType: 'json',
+        data: JSON.stringify({
+            filterLongName: "",
+            // filterType: "Equity Issuer"
+            filterType: ""
+        })
+    });
+    request.success(function (data) {
+        try {
+            var parsedObject = data;
+            var strHtml = '<li>';
+            $('#loading').innerHTML = "";
+            $.each(parsedObject, function (key, value) {
+                var MasterID = value.MasterID;
+                var LongName = value.LongName;
+                if (LongName.indexOf("&") > -1){
+                    LongName = LongName.replace("&", "AND");
+                }
+                //Check if issuer is not in the DOM already, the method returns all issuers with different master ID's, they should not be duplicated. 
+                if (tempCompanies.indexOf(LongName) === -1){
+                    if (LongName && MasterID) {
+                        $('#myUL').append("<li class='liSearch'>" +
+                            "<a class='aSearch' href='/communication/sens-announcements?!name=" + LongName.toLowerCase() + "&issuermasterid=" + MasterID + "'>" +
+                            LongName + " | " + value.RoleDescription + "</a>" + "</li>");
+                    }
+                    //To ensure that we only add one instance of each company, add it in here and check that company long name is not in there before adding it to the DOM.
+                    tempCompanies.push(LongName)
+                }
+            });
+        } catch (e) { }
+    });
+}
+
+function capitalize(text) {
+    return text.replace(/\b\w/g, function (m) { return m.toUpperCase(); });
+}
+
+function SensHome() {
+    window.location.href = "/communication/sens-announcements";
+}
+// Close the dropdown if the user clicks outside of it
+window.onload = function (e) {
+    getTodaySens();
+    getIssuers();
+
+    $('#myInput').keyup(function (key) {
+        searchSens();
+    });
+
+    $('#myInput').focus(function (key) {
+        if (!$(".liSearch").is(":visible")) {
+            ShowAll();
+        }
+    })
+
+}

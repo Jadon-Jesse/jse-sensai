@@ -1,0 +1,136 @@
+// $(document).ready(function() {
+//     if (detectmob()) {
+//         ChangeMenuToMobile();
+//     } else {
+//         ChangeMenuFromMobile();
+//     }
+
+// });
+
+// function ChangeMenuToMobile() {
+//     $('.ms-core-listMenu-horizontalBox').removeClass('ms-core-listMenu-horizontalBox');
+//     $('.ms-core-listMenu-horizontalBox').addClass('ms-core-listMenu-verticalBox');
+
+//     // $(".dynamic").css('top', '21px');
+//     // $(".dynamic").css('left', '0px');
+// }
+
+// function ChangeMenuFromMobile() {
+//     $('.ms-core-listMenu-horizontalBox').removeClass('ms-core-listMenu-verticalBox');
+//     $('.ms-core-listMenu-horizontalBox').addClass('ms-core-listMenu-horizontalBox');
+
+//     // $(".dynamic").css('top', '-10px');
+//     // $(".dynamic").css('left', '112px');
+// }
+
+// $("li.dynamic-children").click(function() {
+//     if (detectmob()) {
+//         $(this).closest("ul").css('top', '21px');
+//         $(this).closest("ul").css('left', '0px');
+//     }
+// })
+
+// function detectmob() {
+//     if (navigator.userAgent.match(/Android/i) ||
+//         navigator.userAgent.match(/webOS/i) ||
+//         navigator.userAgent.match(/iPhone/i) ||
+//         navigator.userAgent.match(/iPad/i) ||
+//         navigator.userAgent.match(/iPod/i) ||
+//         navigator.userAgent.match(/BlackBerry/i) ||
+//         navigator.userAgent.match(/Windows Phone/i)
+//     ) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// $(function () {
+//     $('#navbar-collapse').on('show.bs.dropdown', function (e) {
+//         // $('.dropdown-submenu').dropdown('toggle', 'open').hide();
+//         // if (!$(e.relatedTarget).hasClass('dropdown-submenu')) {
+//         //     $('.dropdown-submenu .dropdown-menu').dropdown('toggle', 'open');
+//         //     console.log('shown:', e);
+//         // }
+//     });
+// })
+
+// $(function () {
+//     var backdrop = '.dropdown-backdrop'
+//     var toggle = '[data-toggle=dropdown]'
+//     var Dropdown = function (element) {
+//         $(element).on('click.bs.dropdown', this.toggle)
+//     }
+
+//     Dropdown.prototype.toggle = function (e) {
+//         var $this = $(this)
+
+//         if ($this.is('.disabled, :disabled')) return
+
+//         var $parent = getParent($this)
+//         var isActive = $parent.hasClass('open')
+
+//         clearMenus()
+
+//         if (!isActive) {
+//             if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+//                 // if mobile we use a backdrop because click events don't delegate
+//                 $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+//             }
+
+//             var relatedTarget = { relatedTarget: this }
+//             $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+
+//             if (e.isDefaultPrevented()) return
+
+//             $parent
+//                 .toggleClass('open')
+//                 .trigger('shown.bs.dropdown', relatedTarget)
+
+//             $this.focus()
+//         }
+
+//         return false
+//     }
+// })
+
+//$(function () {
+// $(".dropdown-toggle").on('click', function (e){
+//     $(this).parent().find('.dropdown-submenu').click()
+// });
+
+
+
+// $('#navbar-collapse').after('show.bs.dropdown', function (e) {
+//     // $('.dropdown-submenu').dropdown('toggle', 'open').hide();
+//     // if (!$(e.relatedTarget).hasClass('dropdown-submenu')) {
+//     //     $('.dropdown-submenu .dropdown-menu').dropdown('toggle', 'open');
+//     //     console.log('shown:', e);
+//     // }
+// });
+//})
+
+$('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+    if (!$(this).next().hasClass('show')) {
+        $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
+    }
+    var $subMenu = $(this).next('.dropdown-menu');
+    $subMenu.toggleClass('show');
+
+
+    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+        $('.dropdown-submenu .show').removeClass('show');
+    });
+
+
+    return false;
+});
+
+$(".top_level_dd").on('click', function (e){
+    //check if horizontal menu
+    if(window.innerWidth >= 1200){
+        //show all the sub menu's.
+        //$(this).children().find('a.dropdown-toggle').next().addClass('active');
+        $(this).children().find('a.dropdown-toggle').next('.dropdown-menu').addClass('show');
+    }
+});

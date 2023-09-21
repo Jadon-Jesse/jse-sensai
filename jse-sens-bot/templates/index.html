@@ -1,284 +1,363 @@
-<!DOCTYPE HTML>
-<html class="h-100">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+    <head>
+        <script src="/jse-sens-bot/static/js/color-modes.js"></script>
 
-    <title>App1 - FXMM Demo</title>
-
-
-
-
-    <link rel="stylesheet" href="/hello/static/lib/bootstrap/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Jadon Manilall">
+        <title>JSESensai</title>
 
 
+        <script src="/jse-sens-bot/static/js/axios.min.js"></script>
+        <script src="/jse-sens-bot/static/js/pyramid.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="/hello/static/lib/jquery/jquery-3.6.0.min.js"> -->
-    <!-- <link rel="stylesheet" href="/hello/static/lib/socketio/socket.io-client-4.5.0/dist/socket.io.js"> -->
+        <!-- <link rel="stylesheet" href="/jse-sens-bot/static/lib/bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="/jse-sens-bot/static/js/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/jse-sens-bot/static/css/base.css">
 
-    
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> -->
+        <link rel="stylesheet" href="/jse-sens-bot/static/css/blog.css">
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script> -->
+    </head>
+    <body>
 
-    <meta name="theme-color" content="#712cf9">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      .list-group{
-          max-height: 100px;
-          height: 100px;
-          /*margin-bottom: 10px;*/
-          overflow-y:auto;
-          -webkit-overflow-scrolling: touch;
-          /*position: absolute;
-          top: 120px;
-          bottom: 100px;
-          left: 180px;
-          width: 50%;
-          overflow-y: scroll;*/
-      }
-    </style>
-    
-    <link rel="stylesheet" href="/hello/static/css/cover.css">
-
-
-
-
-
-</head>
-<body class="d-flex h-100 text-center text-bg-dark">
-<!--     <h1>FXMM-Demo WebSocket Test</h1>
-
-    <h2>Send:</h2>
-    <form id="broadcast" method="POST" action='#'>
-        <input type="text" name="broadcast_data" id="broadcast_data" placeholder="Message">
-        <input type="submit" value="Broadcast">
-    </form>
-    <h2>Receive:</h2>
-    <div id="log"></div> -->
-
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-          <h3 class="text-center mb-0">App 1 - Demo</h3>
+        <!-- Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog  modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <pre class="modal-body">
+                stuff
+              </pre>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
-
-      <main>
-        <h1>USDZAR SPOT</h1>
-        <!-- <p class="lead">USDZAR SPOT</p> -->
-        <button id="bidBtn" type="button" class="btn btn-outline-danger btn-lg" value="BID">BID</button>
-        <button id="askBtn" type="button" class="btn btn-outline-success btn-lg" value="ASK">ASK</button>
 
 
-      </main>
+        <!-- svg assets -->
 
-      <footer class="footer mt-auto py-3">
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+          <symbol id="check2" viewBox="0 0 16 16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+          </symbol>
+          <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+          </symbol>
+          <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+          </symbol>
+          <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+          </symbol>
+        </svg>
+
+
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+          <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+          </symbol>
+          <symbol id="cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </symbol>
+          <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </symbol>
+        </svg>
+
+        <!-- bottom right floating theme switch -->
+        <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+          <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+                  id="bd-theme"
+                  type="button"
+                  aria-expanded="false"
+                  data-bs-toggle="dropdown"
+                  aria-label="Toggle theme (auto)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+              <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+                Light
+                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+                Dark
+                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+                Auto
+                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Main nav menu header -->
+
+
         <div class="container">
-            <h2>Order Message Log:</h2>
-            <div class="list-group" >
-                <ul id="log" class="list-group list-group-flush text-bg-dark">
-                </ul>
+          <header class="border-bottom lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-4 pt-1">
+                <!-- <a class="link-secondary" href="#">Subscriber</a> -->
+                <svg class="my-svg-icon">
+                  <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M97.8357 54.6682C177.199 59.5311 213.038 52.9891 238.043 52.9891C261.298 52.9891 272.24 129.465 262.683 152.048C253.672 173.341 100.331 174.196 93.1919 165.763C84.9363 156.008 89.7095 115.275 89.7095 101.301" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M98.3318 190.694C-10.6597 291.485 121.25 273.498 148.233 295.083" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M98.3301 190.694C99.7917 213.702 101.164 265.697 100.263 272.898" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M208.308 136.239C208.308 131.959 208.308 127.678 208.308 123.396" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M177.299 137.271C177.035 133.883 177.3 126.121 177.3 123.396" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M203.398 241.72C352.097 239.921 374.881 226.73 312.524 341.851" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M285.55 345.448C196.81 341.85 136.851 374.229 178.223 264.504" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M180.018 345.448C160.77 331.385 139.302 320.213 120.658 304.675" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M218.395 190.156C219.024 205.562 219.594 220.898 219.594 236.324" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M218.395 190.156C225.896 202.037 232.97 209.77 241.777 230.327" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M80.1174 119.041C75.5996 120.222 71.0489 119.99 66.4414 120.41" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M59.5935 109.469C59.6539 117.756 59.5918 125.915 58.9102 134.086" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M277.741 115.622C281.155 115.268 284.589 114.823 287.997 114.255" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M291.412 104.682C292.382 110.109 292.095 115.612 292.095 121.093" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M225.768 116.466C203.362 113.993 181.657 115.175 160.124 118.568" stroke="#ffffff" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              </svg>
+              <div class="col-4 text-center">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">JSESensAI</a>
+              </div>
+
+              </div>
             </div>
+          </header>
+
+          <div class="nav-scroller py-1 mb-3 border-bottom">
+            <nav class="nav nav-underline justify-content-between">
+              <a class="nav-item nav-link" href="#">Last Refresh Time:</a>
+            </nav>
+          </div>
         </div>
-      </footer>
 
 
-<!--       <footer class="mt-auto text-white-50">
-            <h2>Receive:</h2>
-            <div class="list-group" id="log">
-                <ul>
-                    <li> First </li>
-                </ul>
+
+        <main class="container">
+          <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+            <div class="col-lg-12 px-0">
+              <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+              <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
             </div>
-      </footer> -->
-    </div>
+          </div>
+
+          <button  onClick="showModal('hu' , 'ggg' , '1')">Sarcastic</button>
 
 
-    <!-- SCRIPTS  -->
-    <script type="text/javascript" src="/hello/static/lib/jquery/jquery-3.6.0.min.js"></script>
-    
-    <script type="text/javascript" src="/hello/static/lib/socketio/socket.io-client-4.5.0/dist/socket.io.js"></script>
+          {% for a_file in jse_sens %}
+          <div class="row mb-2">
+            <div class="col-md-12">
+            <button  onClick='showModal({{ a_file.content | tojson }})'>Sarcastic</button>
 
-    <script type="text/javascript" src="/hello/static/lib/bootstrap/bootstrap-5.2.0-dist/js/bootstrap.min.js"></script>
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-success-emphasis">
+
+                    
+                  </strong>
+                  <h3 class="mb-0">{{ a_file.title }}</h3>
+                  <div class="mb-1 text-body-secondary">{{ a_file.created }}</div>
+                  <p class="mb-auto">{{ a_file.content }}</p>
+                  <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Continue reading
+                    <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                  </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+        </main>
+
+
+
+        <div class="jumbotron">
+            <h1 class="display-4"> Reviewing JSE SENS Announcements @ Peresec </h1>
+            <p class="lead"> with Sarcastic AI</p >
+
+            <hr class="my-4">
 
 
 
 
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function() {
+        </div>
 
-            function checkEmpty(v) {
+        <div class='container'>
+            <h3>Test</h3>
+                <form>
+                    <a href="#" id="test"><button class='btn btn-default'>Test</button></a>
+                </form>
 
-                var type = typeof v;
-                if (type === 'undefined') {
-                    return true;
-                }
-                if (type === 'boolean') {
-                    return !v;
-                }
-                if (v === null) {
-                    return true;
-                }
-                if (v === undefined) {
-                    return true;
-                }
-                if (v instanceof Array) {
-                    if (v.length < 1) {
-                        return true;
-                    }
-                } else if (type === 'string') {
-                    if (v.length < 1) {
-                        return true;
-                    }
-                    if (v === '0') {
-                        return true;
-                    }
-                } else if (type === 'number') {
-                    if (v === 0) {
-                        return true;
-                    }
-                }
-                return false;
+        </div>
 
+        <ul class="tabs">
+            <li><a href="/user/view"><span class="tab">Profile</span></a></li>
+            <li><a href="/user/edit"><span class="tab">Edit</span></a></li>
+        </ul>
+
+        <p id="pcont"> </p>
+
+
+        <div>
+            {% for a_file in jse_sens %}
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ a_file.text }} </h5>
+                        <button onclick="sendTextToAPI('{{ a_file.akey }}' , '{{ a_file.text }}' , '{{ a_file.body }}' , 'outputSpan{{ loop.index0 }}')">Sarcastic</button>
+                        <button onclick="sendTextToAPI2('{{ a_file.akey }}' , '{{ a_file.text }}' , '{{ a_file.body }}' , 'outputSpan{{ loop.index0 }}')">Serious</button>
+                        <!-- Span to hold the API response -->
+                        <p class="card-text">
+
+                        <span id="outputSpan{{ loop.index0 }}"></span>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <script type="text/javascript">
+                $(function() {
+                  $('a#test').on('click', function(e) {
+                    console.log("Button clicked");
+                    e.preventDefault()
+                    $.getJSON('/background_process_test',
+                        function(data) {
+                      //do nothing
+                            console.log("called bg function",data);
+                            var dataText = data.data;
+                            console.log(dataText);
+                            $("#pcont").append(dataText);
+                    });
+                    return false;
+                  });
+                });
+        </script>
+
+
+
+
+
+
+
+        <script>
+
+            function showModal( bodyText) {
+                console.log("Showing modal for",   bodyText);
+
+                // var modalText = '<p>' + bodyText + '</p>';
+                var modalText = `
+                ${bodyText}
+                `
+                // $("#exampleModal .modal-body").html(modalText);
+                $("#exampleModal .modal-body").text(modalText);
+                // var htmlText = 
+                $("#exampleModal").modal('show'); 
+
+                
             }
 
-            var lastBid = 0.0;
-            var lastAsk = 0.0;
 
 
-            // Connect to the Socket.IO server.
-            // The connection URL has the following format, relative to the current page:
-            //     http[s]://<domain>:<port>[/<namespace>]
-            // console.log(Window.location);
-            var socket = io({path:"/hello/socket.io/", rememberTransport: false});
+            function sendTextToAPI2(apiKey, text, bodyText,  outputSpanId) {
+                var apiFetchObj = Example.pyramid();
 
-            // Event handler for new connections.
-            // The callback function is invoked when a connection with the
-            // server is established.
-            socket.on('connect', function() {
-                socket.emit('my_event', {data: 'I\'m connected!'});
-
-                // var tst = {
-                //     ticker: "ZAR Curncy",
-                //     BID: 11,
-                //     ASK: null
-                // };
-                // console.log("Testing", tst);
-                // console.log("BID check empyty", checkEmpty(tst.BID));
-                // console.log("ASK check empyty", checkEmpty(tst.ASK));
-
-            });
+                var textClean = text.replace(/["']/g, "");
+                var bodyTextClean = bodyText.replace(/["']/g, "");
 
 
-            socket.on('bbg_live_usdzar_curncy_data', function(msg) {
-                // console.log(msg);
-                // console.log(typeof msg);
-                var data = JSON.parse(msg.data);
-                // console.log(data);
-                // $('#log').append('<p>Received: ' + msg.data + '</p>');
-                if(checkEmpty(data.BID) == false) {
-                    lastBid = data.BID;
-                }
-                if(checkEmpty(data.ASK) == false) {
-                    lastAsk = data.ASK;
-                }
-                var bText = "BID: " + lastBid;
-                var aText = "ASK: " + lastAsk;
-                $('#bidBtn').text(bText);
-                $('#askBtn').text(aText);
-            });
+                var sNims = `You are a serious equities trader who is always looking to the current news to find tradable signals. Your job is to identify high quality trading signals in the following SENS announcement from the JSE:
+                    '''
+                    <title>
+                    ${textClean}
+                    </title>
+                    <body>
+                    ${bodyTextClean}
+                    </body>
+                    '''
+                `
+                console.log("Prompt:", sNims);
 
-            socket.on('my response', function(msg) {
-                $('#log').prepend('<li class="list-group-item text-bg-dark">OrderEntry: ' + msg.data + ' [client:'+msg.clid+']' +'</li>');
-            });
+                var payload = { 
+                    model: "gpt-4",
+                    messages: [{"role": "user", "content": sNims}],
+                    temperature: 0.7
+                };
 
-            // $('form#emit').submit(function(event) {
-            //     socket.emit('my event', {data: $('#emit_data').val()});
-            //     return false;
-            // });
-            // $('form#broadcast').submit(function(event) {
-            //     socket.emit('my broadcast event', {data: $('#broadcast_data').val()});
-            //     return false;
-            // });
+                var onCompletion = function(response) {
+                    console.log(response);
+                    // Assuming the desired content is in response.data.choices[0].message.content
+                     // Adjust as necessary based on the structure of your API response.
+                     document.getElementById(outputSpanId).innerText = response.data.choices[0].message.content;
+                };
+                
+                var onError = function(response, body) {
+                    console.error(response, body);
+                };
 
-            // broadcast clicked value
-            $('#bidBtn').click(function(event){
-                var currentBid = $("#bidBtn").html();
+                apiFetchObj.apiPost(payload, apiKey, onCompletion, onError);
+            }
 
-                console.log("Clicked bid", currentBid);
-                socket.emit('my broadcast event', {data: currentBid});
+            function sendTextToAPI(apiKey, text, bodyText,  outputSpanId) {
+                var apiFetchObj = Example.pyramid();
 
-            });
+                var textClean = text.replace(/["']/g, "");
+                var bodyTextClean = bodyText.replace(/["']/g, "");
+                var sNims = `You are the head of global markets for Peresec Capital. You have made a lot of money throughout your career and you are always looking for opportunities to examine and critique the current news. You are also extremely sarcastic and love to brag about your time trading rolls whenever you find the right moment. Your job is to provide a 10 line summery of the following SENS announcement from the JSE:
+                    '''
+                    <title>
+                    ${textClean}
+                    </title>
+                    <body>
+                    ${bodyTextClean}
+                    </body>
+                    '''
+                `
 
-            $('#askBtn').click(function(event){
-                var currentAsk = $("#askBtn").html();
 
-                console.log("Clicked ask", currentAsk);
-                socket.emit('my broadcast event', {data: currentAsk});
+                console.log("Prompt:", sNims);
 
-            });
+                var payload = { 
+                    model: "gpt-3.5-turbo-16k",
+                    messages: [{"role": "user", "content": sNims}],
+                    temperature: 0.7
+                };
 
+                var onCompletion = function(response) {
+                    console.log(response);
+                    // Assuming the desired content is in response.data.choices[0].message.content
+                     // Adjust as necessary based on the structure of your API response.
+                     document.getElementById(outputSpanId).innerText = response.data.choices[0].message.content;
+                };
+                
+                var onError = function(response, body) {
+                    console.error(response, body);
+                };
 
+                apiFetchObj.apiPost(payload, apiKey, onCompletion, onError);
+            }
 
-            // $('form#disconnect').submit(function(event) {
-            //     socket.emit('disconnect_request');
-            //     return false;
-            // });
-
-        });
-    </script>
+        </script>
 
 
 
-</body>
+        <script src="/jse-sens-bot/static/js/bootstrap-5.3.2-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+    </body>
 </html>

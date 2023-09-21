@@ -1,0 +1,5 @@
+$(window).on('load', function() {
+    if (window.location.href.indexOf("Registered") > -1) {
+        $("#ctl00_EditModePane2").css("min-height", "342px");
+    }
+})

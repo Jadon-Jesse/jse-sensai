@@ -1,0 +1,293 @@
+/* Breadcrumb */
+
+.sitemap a {
+    color: #808080;
+}
+
+.breadcrumb {
+    background-color: #fff;
+    margin-bottom: 0px;
+    margin-top: 55px;
+}
+
+.titlePage {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 15px;
+
+}
+
+.breadcrumbContainer {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.pageTitle {
+    display: none;
+}
+
+/* End Breadcrumb */
+
+/* General Styles */
+
+body {
+    color: #808080 !important;
+    font-family: "segoe_uiregular", sans-serif;
+    font-size: 14px;
+}
+
+a {
+    color: #026c7c;
+    -webkit-transition: color .22s linear;
+    -o-transition: color .22s linear;
+    transition: color .22s linear;
+}
+
+a:hover {
+    background: none;
+    color: #94d600 !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:visited {
+    color: #026c7c !important;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 1.2rem !important;
+    margin: 0.67em 0 !important;
+    color: #808080 !important;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 1.1rem !important;
+    margin: 0.67em 0 !important;
+    color: #808080 !important;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1rem !important;
+    margin: 0.67em 0 !important;
+    color: #808080 !important;
+    font-weight: 300;
+}
+
+.nobullets {
+    list-style: none;
+}
+
+/* #MSOZoneCell_WebPartWPQ4 {
+    padding-top: 10px;
+} */
+
+#cqwpSearch {
+    margin-top: 10px;
+}
+
+.jseSearch {
+    margin-top: 10px;
+}
+
+.form-control:focus {
+    border-color: #94d600 !important;
+    /* box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(148, 214, 0, .6); */
+    box-shadow: none;
+}
+
+.jsebutton {
+    transition: all 0.2s !important;
+    color: white !important;
+    background-color: #94d600 !important;
+    border-color: #82bd00 !important;
+    padding: 0.5rem 1.3rem 0.5rem !important;
+    display: inline-block !important;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+    text-decoration: none !important;
+    border: none !important;
+    font-size: 0.8rem !important;
+    border-radius: 0%;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 5px;
+}
+
+.jsebutton:visited {
+    color: white !important;
+    background-color: #94d600 !important;
+    border-color: #82bd00 !important;
+}
+
+.jsebutton:active:hover,
+.jsebutton:active:focus,
+.jsebutton:hover {
+    color: #fff !important;
+    background-color: #587f00 !important;
+    /* border-color: #2a3d00 !important; */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: -2px 0 0;
+}
+
+/* END General Styles */
+
+/* Site filter styles */
+
+.filterheader {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #94d600;
+}
+
+.filtermessage {
+    margin-bottom: 10px;
+}
+
+.innerfilterheader {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.filter_container>ul {
+    padding: 0px;
+}
+
+/* Site filters END */
+
+/* General Pagination */
+
+#divPages .page {
+    padding: 0 10px;
+    border: 1px solid lightgray;
+}
+
+#divPages .page:hover {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: white;
+    cursor: pointer;
+}
+
+#divPages .selected {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: white;
+}
+
+/* General Pagination END */
+
+/* Checkbox styles */
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    outline: none;
+    outline: none;
+    outline-offset: 0px;
+}
+
+/* Checkbox styles end */
+
+/* Table styles */
+
+.table tr {
+    margin: 5px 0;
+}
+
+.table tr:first-child {
+    margin-top: 0px !important;
+}
+
+/* Table styles end */
+
+/* CQWP List Items styles */
+
+/* .link-item{
+    width: 100%;
+} */
+
+/* CQWP List Items END */
+
+/* Other styles */
+
+.col__inner__container {
+    margin-top: 10px;
+}
+
+#MSOZoneCell_WebPartWPQ1 {
+    margin-top: 10px;
+}
+
+.bgContainer {
+    background-color: #eee;
+}
+
+.italic_gray_bg {
+    background: #DCDCDC;
+    font-style: italic;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Other styles END */
+
+@media (min-width: 992px) {
+    .filter_container {
+        padding-top: 20px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+    /* End styles */
+    .breadcrumb {
+        margin-top: 85px;
+    }
+
+    /* End Breadcrumb */
+
+
+
+    /* CQWP List Items styles */
+
+    .link-item {
+        display: inline-table;
+        padding: 5px 0;
+    }
+
+    .link-item img {
+        margin-top: 6px;
+    }
+
+    /* .link-item-details {
+        float: right;
+    } */
+
+    /* CQWP List Items END */
+
+
+}
+
+@media (min-width: 1600px) {
+    .container {
+        width: 1370px !important;
+    }
+}
+
+@media (min-width: 1900px) {
+    .container {
+        width: 1570px !important;
+    }
+}
+
+@media (min-width: 2300px) {
+    .container {
+        width: 1970px !important;
+    }
+}

@@ -1,0 +1,5 @@
+$(document).ready(function() {
+    $('.sitemap span:last-child').hide();
+    $('.sitemap span a').contents().unwrap();
+    $('.sitemap span:first-child').text("").html("<a href='https://clientportal.jse.co.za/'>Home</a>");
+});

@@ -1,0 +1,192 @@
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             QUILTER PLC                                                          
+             Incorporated under the Companies Act 1985 with registered number 06404270 and re-
+             registered as a public limited company under the Companies Act 2006) 
+             ISIN CODE: GB00BNHSJN34                                              
+             JSE SHARE CODE: QLT                                                  
+             Quilter plc (the "Company")                                          
+                                                                                  
+                                                                                  
+                                                                                  
+                    TR-1: Standard form for notification of major holdings        
+                                                                                  
+             1. Issuer Details                                                    
+                                                                                  
+              ISIN                                                                
+              GB00BNHSJN34                                                        
+                                                                                  
+              Issuer Name                                                         
+              QUILTER PLC                                                         
+                                                                                  
+              UK or Non-UK Issuer                                                 
+              UK                                                                  
+                                                                                  
+             2. Reason for Notification                                           
+                                                                                  
+              An acquisition or disposal of voting rights                         
+             3. Details of person subject to the notification obligation          
+                                                                                  
+              Name                                                                
+              Norges Bank                                                         
+                                                                                  
+              City of registered office (if applicable)                           
+              Oslo                                                                
+                                                                                  
+              Country of registered office (if applicable)                        
+              Norway                                                              
+                                                                                  
+             4. Details of the shareholder                                        
+                                                                                  
+              Full name of shareholder(s) if different from the person(s)         
+              subject to the notification obligation, above                       
+                                                                                  
+                                                                                  
+              City of registered office (if applicable)                           
+                                                                                  
+                                                                                  
+              Country of registered office (if applicable)                        
+                                                                                  
+                                                                                  
+             5. Date on which the threshold was crossed or reached                
+                                                                                  
+              18-Sep-2023                                                         
+             6. Date on which Issuer notified                                     
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+              19-Sep-2023                                                         
+                                                                                  
+             7. Total positions of person(s) subject to the notification          
+             obligation                                                           
+                                      % of voting                                 
+                            % of voting rights through                            
+                                                  Total of both Total number of   
+                            rights attached financial                             
+                    .                             in % (8.A + voting rights       
+                            to shares (total instruments                          
+                                                  8.B)     held in issuer         
+                            of 8.A)   (total of 8.B 1 +                           
+                                      8.B 2)                                      
+               Resulting                                                          
+               situation on the                                                   
+               date on which                                                      
+                            3.020570   0.028770   3.049340  42816024              
+               threshold was                                                      
+               crossed or                                                         
+               reached                                                            
+               Position of                                                        
+               previous                                                           
+                            2.994410   0.028770   3.023180                        
+               notification (if                                                   
+               applicable)                                                        
+             8. Notified details of the resulting situation on the date on which  
+             the threshold was crossed or reached                                 
+             8A. Voting rights attached to shares                                 
+             Class/Type of Number of direct Number of      % of indirect          
+                                                % of direct voting                
+             shares ISIN voting rights indirect voting     voting rights          
+                                                rights (DTR5.1)                   
+             code(if possible) (DTR5.1) rights (DTR5.2.1)  (DTR5.2.1)             
+              GB00BNHSJN34 42412024              3.020570                         
+                          42412024               3.020570%                        
+             Sub Total 8.A                                                        
+             8B1. Financial Instruments according to (DTR5.3.1R.(1) (a))          
+                                              Number of voting                    
+                                              rights that may be                  
+             Type of financial Expiration Exercise/conversion % of voting         
+                                              acquired if the                     
+             instrument  date     period                   rights                 
+                                              instrument is                       
+                                              exercised/converted                 
+              Shares on                                                           
+              loan (right to N/A  At any time  404000      0.028770               
+              recall)                                                             
+                                               404000       0.028770%             
+             Sub Total 8.B1                                                       
+             8B2. Financial Instruments with similar economic effect              
+             according to (DTR5.3.1R.(1) (b))                                     
+             Type of                                          % of                
+                      Expiration Exercise/conversion Physical or cash Number of   
+             financial                                        voting              
+                      date   period        settlement voting rights               
+             instrument                                       rig hts             
+             Sub Total 8.B2                                                       
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             9. Information in relation to the person subject to the              
+             notification obligation                                              
+             1. Person subject to the notification obligation is not controlled by any
+                                                                                  
+             natural person or legal entity and does not control any other        
+             undertaking(s) holding directly or indirectly an interest in the     
+             (underlying) issuer.                                                 
+                                 % of voting % of voting rights Total of both if it
+                        Name of  rights if it equals through financial equals or is
+             Ultimate                                                             
+                        controlled or is higher than instruments if it equals higher than the
+             controlling person                                                   
+                        undertaking the notifiable or is higher than the notifiable
+                                 thr eshold no tifiable threshold thr eshold      
+             10. In case of proxy voting                                          
+              Name of the proxy holder                                            
+              The number and % of voting rights held                              
+                                                                                  
+                                                                                  
+              The date until which the voting rights will be held                 
+                                                                                  
+                                                                                  
+             11. Additional Information                                           
+                                                                                  
+                                                                                  
+                                                                                  
+             12. Date of Completion                                               
+              19-Sep-2023                                                         
+                                                                                  
+             13. Place Of Completion                                              
+                                                                                  
+              Oslo, Norway                                                        
+                                                                                  
+                                                                                  
+                                                                                  
+          20 September 2023                                                       
+                                                                                  
+          Sponsor:                                                                
+          J.P. Morgan Equities South Africa Proprietary Limited                   
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  

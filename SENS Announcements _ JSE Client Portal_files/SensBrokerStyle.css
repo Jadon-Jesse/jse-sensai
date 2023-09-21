@@ -1,0 +1,233 @@
+/* New Styles */
+
+.sens__link {
+    color: #00aeef!Important;
+}
+
+.sens__link:hover {
+    color: #00aeef!Important;
+    cursor: pointer;
+    text-decoration: underline!important;
+}
+
+.sensHeaderSection {
+    border: 1px solid #555554;
+    background-color: #a3cf62!important;
+}
+
+.sensBodyContainer {
+    border-left: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+}
+
+.nopadding {
+    padding: 0 !important;
+    /* margin: 0 !important; */
+}
+
+h2 {
+    margin-bottom: 0px!Important;
+}
+
+.sensSearch {
+    font-weight: BOLD;
+    color: #555554;
+}
+
+.SensLabel {
+    font-size: 16px;
+    color: white;
+    padding: 9px 9px 10px 10px;
+    padding-left: 24px;
+    background-color: #555554;
+}
+
+.sensInput {
+    width: 100%!important;
+    font-size: 16px!important;
+    padding: 12px 20px 12px 20px!important;
+    background-color: #a3cf62!important;
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+    text-align: center!important;
+    border-top: #a3cf62!important;
+    border-right: #a3cf62!important;
+    border-bottom: #a3cf62!important;
+}
+
+.border-top {
+    border-top: 1px solid #555554;
+}
+
+.border-right {
+    border-right: 1px solid #555554;
+}
+
+
+/* Old styles */
+
+input[type=password],
+input[type=text],
+input[type=file],
+select,
+textarea,
+.sp-peoplepicker-topLevel,
+.sp-peoplepicker-topLevelDisabled,
+.sp-peoplepicker-autoFillContainer,
+.ms-inputBox {
+    border: 1px solid #a3cf62!Important;
+}
+
+#announcements {
+    list-style: none;
+}
+
+.grayBorder {
+    /* border-left: 1px solid #555554;
+    border-bottom: 1px #555554;
+    border-right: 1px solid #555554; */
+    border: 1px solid #555554;
+}
+
+.greenBorder {
+    border: 1px solid #a3cf62;
+    /* border-left: 1px solid #a3cf62;
+    border-bottom: 1px solid #a3cf62;
+    border-right: 1px solid #a3cf62; */
+}
+
+.bodyBorder {
+    border-left: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+}
+
+.aligner {
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.headeralign {
+    padding-left: 20px;
+    padding-bottom: 2px !important;
+    color: white !important;
+    height: 100% !important;
+    font-size: 20px;
+    ;
+    font-family: Calibri;
+    font-weight: bold;
+    margin-bottom: 0px !important;
+}
+
+.headerTitle {
+    height: 100%;
+    padding-top: 5px;
+    background-color: #555554;
+    margin-right: 1px;
+}
+
+.Frame {
+    height: 1000px !important;
+    overflow: scroll;
+}
+
+.sensButton {
+    height: 45px;
+    font-family: Calibri;
+    font-weight: BOLD;
+    color: white;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    padding: 12px 20px 12px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 0px;
+    background-color: #a3cf62;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.sensButton:hover {
+    cursor: pointer;
+}
+
+#myInput {
+    background-image: url('/Style%20Library/Images/111124-20.png');
+    /* Add a search icon to input */
+    ;
+    /*background-position: 10px 12px;*/
+    background-position: 98%;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    ;
+    width: 100%;
+    font-size: 16px;
+    /* Increase font-size */
+    ;
+    padding: 12px 20px 12px 20px;
+    /* Add some padding */
+    /* border: 1px solid #ddd; */
+    /* Add a grey border */
+    margin-bottom: 0px;
+    /* Add some space below the input */
+    ;
+    background-color: #a3cf62;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: white !important;
+}
+
+#myUL li a {
+    border: 1px solid #ddd;
+    /* Add a border to all links */
+    margin-top: -1px;
+    /* Prevent double borders */
+    ;
+    background-color: #555554;
+    /* Grey background color */
+    ;
+    color: white !important;
+    padding: 8px;
+    /* Add some padding */
+    text-decoration: none;
+    /* Remove default text underline */
+    ;
+    font-size: 18px;
+    /* Increase the font-size */
+    ;
+    color: black;
+    /* Add a black text color */
+    ;
+    display: block;
+    /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #a3cf62;
+    /* Add a hover effect to all links, except for headers */
+}
+
+.liSearch {
+    display: none;
+}
+
+.searchFrame {
+    height: 1000PX;
+    position: absolute;
+    opacity: 0.9;
+    overflow: scroll;
+}
+
+.show {
+    display: block;
+}

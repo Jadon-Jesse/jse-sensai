@@ -1,0 +1,3 @@
+$(window).on('load', function() {
+    $("#s4-workspace > #s4-bodyContainer > div:nth-child(4)").css("min-height", $(window).height() - $(".navbar").height() - $(".breadcrumbContainer").height() - $(".footer").height());
+})

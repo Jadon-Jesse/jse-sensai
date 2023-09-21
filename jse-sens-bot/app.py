@@ -1,9 +1,10 @@
 from flask import (
     Flask, 
     render_template,
-    request
+    request,
+    Markup
 )
-from flask_socketio import SocketIO, emit, disconnect
+# from flask_socketio import SocketIO, emit, disconnect
 
 from pathlib import Path
 
@@ -32,6 +33,8 @@ import pdfplumber
 from urllib.parse import urlparse, unquote
 import base64
 
+import sqlite3
+
 # HOST = os.environ.get("APP1_HOST_IP")
 HOST = APP_HOST_IP
 PORT = APP_HOST_PORT
@@ -39,21 +42,43 @@ PORT = APP_HOST_PORT
 stor_pth_hist = Path(".") / Path("store") / Path("dl-history")
 stor_pth_hist.mkdir(parents = True, exist_ok = True)
 
-options = webdriver.FirefoxOptions()
-options.add_argument("--headless")
-
-# options.headless = True  # Run Firefox in headless mode
-
-ff_driver_path = APP_GECKO_DRIVER
-ff_service = Service(ff_driver_path)
-driver = webdriver.Firefox(service=ff_service, options=options)
-
 
 app = Flask(__name__, static_url_path = "/jse-sens-bot/static")
 
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, path="/jse-sens-bot/socket.io/")
+_js_escapes = {
+        '\\': '\\u005C',
+        '\'': '\\u0027',
+        '"': '\\u0022',
+        '>': '\\u003E',
+        '<': '\\u003C',
+        '&': '\\u0026',
+        '=': '\\u003D',
+        '-': '\\u002D',
+        ';': '\\u003B',
+        u'\u2028': '\\u2028',
+        u'\u2029': '\\u2029'
+}
+# Escape every ASCII character with a value less than 32.
+_js_escapes.update(('%c' % z, '\\u%04X' % z) for z in range(32))
+def jinja2_escapejs_filter(value):
+        retval = []
+        for letter in value:
+                if _js_escapes.has_key(letter):
+                        retval.append(_js_escapes[letter])
+                else:
+                        retval.append(letter)
 
+        return jinja2.Markup("".join(retval))
+        
+app.config['SECRET_KEY'] = 'secret!'
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.jinja_env.filters['json'] = jinja2_escapejs_filter
+# socketio = SocketIO(app, path="/jse-sens-bot/socket.io/")
+
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 def wdownload_file(url, fname):
     '''
@@ -119,6 +144,17 @@ def clean_str(dirty):
     return clean4
 
 def scrape_sel_edge():
+
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--headless")
+
+    # options.headless = True  # Run Firefox in headless mode
+
+    ff_driver_path = APP_GECKO_DRIVER
+    ff_service = Service(ff_driver_path)
+    driver = webdriver.Firefox(service=ff_service, options=options)
+
+
     url = "https://clientportal.jse.co.za/communication/sens-announcements"
 
     print("Using gecko")
@@ -240,21 +276,150 @@ def scrape_sel_edge():
     return sens_announcements, just_text_ls
 
 
+
+
+def scrape_sel_edge_to_db():
+
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--headless")
+
+    # options.headless = True  # Run Firefox in headless mode
+
+    ff_driver_path = APP_GECKO_DRIVER
+    ff_service = Service(ff_driver_path)
+    driver = webdriver.Firefox(service=ff_service, options=options)
+
+
+    url = "https://clientportal.jse.co.za/communication/sens-announcements"
+
+    print("Using gecko")
+    driver.get(url)
+
+    html = driver.page_source
+
+    print(html)
+
+    delay = 40  # seconds
+    try:
+        # Wait until the dynamically loaded elements are loaded.
+        WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.CLASS_NAME, "sens__link")))
+    except Exception as e:
+        print(f"Exception while looking for elem: {e}")
+        # return "Loading took too much time!"
+
+    print("Getting soup")
+    soup = BeautifulSoup(driver.page_source, "lxml")
+    # print(soup)
+
+    sens_announcements = []
+    just_text_ls = []
+
+
+    connection = get_db_connection()
+    
+    for tag in soup.select('a.sens__link'):
+        tag_text = tag.get_text()
+        jse_url = tag['href']
+
+        jse_url_parsed = urlparse(jse_url)
+        jse_url_clean = unquote(jse_url_parsed.path)
+        jse_output_name = os.path.basename(jse_url_clean)
+
+        # setup output path so we can fix the duffix
+        fout = stor_pth_hist / Path(jse_output_name)
+
+
+        # first clear the existing extensinon
+        filename_clear = fout.with_suffix("")
+        # replace exrension with .pdf
+        filename_pdf = filename_clear.with_suffix(".pdf")
+        filename_txt = filename_clear.with_suffix(".txt")
+
+        dl_file = None
+        pages_string = ""
+
+        if filename_pdf.exists():
+            print(f"file: {filename_pdf} already downloaded")
+
+
+        else:
+            print(f"Downloading file to store: {jse_url}")
+            dl_file = wdownload_file(jse_url, filename_pdf)
+
+        if dl_file is not None:
+            print("parsing pdf")
+            ls_page_text = parse_pdf_text(dl_file)
+            pages_string = "\n".join(ls_page_text)
+            # save to db
+            # print(pages_string_lines)
+            print("saving to db")
+
+
+            gpt_review = "todo"
+            cur = connection.cursor()
+
+
+            cur.execute("INSERT INTO sens (title, content, filename, gptreview) VALUES (?, ?, ?, ?)",
+                        (tag_text,pages_string,filename_pdf,gpt_review)
+                        )
+            connection.commit()
+
+
+
+        print(pages_string)
+
+
+
+            
+    connection.close()
+    
+
+
+def get_stored_announcements():
+    announcements = []
+    files = stor_pth_hist.glob("*.txt")
+    for file in files:
+        with open(file, encoding='utf-8') as f:
+            pages_string = " ".join([clean_str(l) for l in f])
+            announcement = {
+                'akey': API_KEY,
+                'text': file.stem,
+                'href': file.stem,
+                'body': pages_string
+            }
+            announcements.append(announcement)
+    return announcements
+
+
+# background process happening without any refreshing
+@app.route('/background_process_test')
+def background_process_test():
+    print ("Hello")
+    scrape_sel_edge_to_db()
+
+    return dict(data="stuff")
+
+
+def get_sens():
+    conn = get_db_connection()
+    posts = conn.execute('SELECT * FROM sens').fetchall()
+    conn.close()
+    return posts
+
 @app.route("/")
 def hello_world():
-
-    js_links, just_text = scrape_sel_edge()
-
-    print("DONE SCRAPING - GOT LINKS")
-    # js_links = []
-    return render_template('home.html', jse_sens = js_links)
+    stored_announcements = get_stored_announcements()
+    print(f"Getting sens")
+    sens = get_sens()
+    print(sens)
+    return render_template('index.html', jse_sens = sens)
 
 
 if __name__ == '__main__':
     try:
         print(f"Running on Host:{HOST} Port:{PORT}")
 
-        socketio.run(app, host=HOST, port=int(PORT), debug=False)
+        app.run(host=HOST, port=int(PORT), debug=True)
 
     except Exception as e:
         print("Exception while stopping")

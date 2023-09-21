@@ -1,0 +1,63 @@
+/* IE 6, 7 & 8 */
+
+@media \0screen\,
+screen\9 {
+    ul.dynamic {
+        border: 0;
+        background-color: #ffffff;
+        padding: 10px !important;
+        margin-top: 29px!important;
+        color: #383838;
+        min-width: 300px;
+        width: auto;
+        margin-left: 3px;
+        box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.47);
+    }
+    .navbar>.container .navbar-brand,
+    .navbar>.container-fluid .navbar-brand {
+        margin-left: 0px;
+        width: 100%;
+    }
+    .navbar-brand>img {
+        height: 55px !important;
+        width: 128px!important;
+    }
+    .subMenuBrand {
+        margin-top: 25px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+
+/* IE 9 and above */
+
+@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+    ul.dynamic {
+        border: 0;
+        background-color: #ffffff;
+        padding: 10px !important;
+        margin-top: 29px!important;
+        color: #383838;
+        min-width: 300px;
+        width: auto;
+        margin-left: 3px;
+        box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.47);
+    }
+    .navbar>.container .navbar-brand,
+    .navbar>.container-fluid .navbar-brand {
+        margin-left: 0px;
+        width: 100%;
+    }
+    .navbar-brand>img {
+        height: 55px !important;
+        width: 128px!important;
+    }
+    .subMenuBrand {
+        margin-top: 25px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+}

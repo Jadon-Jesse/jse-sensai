@@ -1,0 +1,481 @@
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+        Hammerson plc                                                             
+        (Incorporated in England and Wales)                                       
+        (Company number 360632)                                                   
+        LSE and Euronext Dublin share code: HMSO JSE share code: HMN              
+        ISIN: GB00BK7YQK64                                                        
+        (“Hammerson” or “the Company”)                                            
+                                                                                  
+             This notification has been received by Hammerson Plc pursuant to the 
+             relevant shareholder's obligations pursuant to applicable UK law.    
+                                                                                  
+                    TR-1: Standard form for notification of major holdings        
+                                                                                  
+             1. Issuer Details                                                    
+                                                                                  
+              ISIN                                                                
+              GB00BK7YQK64                                                        
+                                                                                  
+              Issuer Name                                                         
+              HAMMERSON  PLC                                                      
+                                                                                  
+              UK or Non-UK Issuer                                                 
+              UK                                                                  
+                                                                                  
+             2. Reason for Notification                                           
+                                                                                  
+              An acquisition or disposal of voting rights                         
+             3. Details of person subject to the notification obligation          
+                                                                                  
+              Name                                                                
+              BlackRock, Inc.                                                     
+                                                                                  
+              City of registered office (if applicable)                           
+              Wilmington                                                          
+                                                                                  
+              Country of registered office (if applicable)                        
+                                                                                  
+              USA                                                                 
+             4. Details of the shareholder                                        
+                                                                                  
+              Full name of shareholder(s) if different from the person(s)         
+              subject to the notification obligation, above                       
+                                                                                  
+                                                                                  
+              City of registered office (if applicable)                           
+                                                                                  
+                                                                                  
+              Country of registered office (if applicable)                        
+                                                                                  
+                                                                                  
+             5. Date on which the threshold was crossed or reached                
+                                                                                  
+              18-Sep-2023                                                         
+             6. Date on which Issuer notified                                     
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+              19-Sep-2023                                                         
+             7. Total positions of person(s) subject to the notification          
+             obligation                                                           
+                                                                                  
+                          % of voting % of voting rights                          
+                                                 Total of both Total number of    
+                   .      rights attached through financial in % (8.A + voting rights held
+                          to shares (total instruments (total                     
+                                                 8.B)     in issuer               
+                          of 8.A)    of 8.B 1 + 8.B 2)                            
+             Resulting                                                            
+             situation on the                                                     
+             date on which                                                        
+                           4.500000   1.180000   5.680000  283993525              
+             threshold was                                                        
+             crossed or                                                           
+             reached                                                              
+             Position of                                                          
+             previous                                                             
+                           5.050000   0.630000   5.680000                         
+             notification (if                                                     
+             applicable)                                                          
+             8. Notified details of the resulting situation on the date on which  
+             the threshold was crossed or reached                                 
+             8A. Voting rights attached to shares                                 
+             Class/Type of Number of Number of indirect % of direct               
+                                                         % of indirect voting     
+             shares ISIN code(if direct voting voting rights voting rights        
+                                                         rights (DTR5.2.1)        
+             possible)   rights (DTR5.1) (DTR5.2.1) (DTR5.1)                      
+             GB00BK7YQK64           224932149              4.500000               
+                          224932149               4.500000%                       
+             Sub Total 8.A                                                        
+             8B1. Financial Instruments according to (DTR5.3.1R.(1) (a))          
+                                              Number of voting                    
+                                              rights that may be                  
+             Type of financial    Exercise/conversion      % of voting            
+                         Expiration date      acquired if the                     
+             instrument           period                   rights                 
+                                              instrument is                       
+                                              exercised/converted                 
+             Securities                                                           
+                                               55476862    1.110000               
+             Lending                                                              
+                                               55476862     1.110000%             
+             Sub Total 8.B1                                                       
+             8B2. Financial Instruments with similar economic effect              
+             according to (DTR5.3.1R.(1) (b))                                     
+             Type of                     Physical or                              
+                     Expiration Exercise/conversion Number of % of voting         
+             financial                   cash                                     
+                     date   period                voting rights rights            
+             instrument                  settlement                               
+             CFD                         Cash     3584514   0.070000              
+                                                  3584514   0.070000%             
+             Sub Total 8.B2                                                       
+             9. Information in relation to the person subject to the              
+             notification obligation                                              
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             2. Full chain of controlled undertakings through which the voting rights
+             and/or the financial instruments are effectively held starting with the
+             ultimate controlling natural person or legal entities (please add    
+             additional rows as necessary)                                        
+                                                                                  
+                                      % of voting % of voting rights              
+                                                            Total of both if      
+                                      rights if it through financial              
+                                                            it equals or is       
+             Ultimate   Name of controlled equals or is instruments if it         
+                                                            higher than           
+             controlling person undertaking higher than the equals or is higher   
+                                                            the notifiable        
+                                      notifiable than the notifiable              
+                                                            threshold             
+                                      threshold threshold                         
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 1) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 1)                                                       
+                        Management, Inc.                                          
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 1)                                                       
+                        Holdings, Inc.                                            
+                        BR Jersey                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 1)                                                       
+                        Holdings L.P.                                             
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        (Singapore)                                               
+             Inc. (Chain 1)                                                       
+                        Holdco Pte. Ltd.                                          
+             BlackRock, BlackRock HK                                              
+             Inc. (Chain 1) Holdco Limited                                        
+             BlackRock, BlackRock Lux                                             
+             Inc. (Chain 1) Finco S.a.r.l.                                        
+             BlackRock, BlackRock Japan                                           
+             Inc. (Chain 1) Holdings GK                                           
+             BlackRock, BlackRock Japan                                           
+             Inc. (Chain 1) Co., Ltd.                                             
+             BlackRock, Trident Merger,                                           
+             Inc. (Chain 2) LLC                                                   
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Investment                                                
+             Inc. (Chain 2)                                                       
+                        Management, LLC                                           
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 3) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 3)                                                       
+                        Management, Inc.                                          
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 3)                                                       
+                        Holdings, Inc.                                            
+                        BR Jersey                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 3)                                                       
+                        Holdings L.P.                                             
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 3) 3, LLC                                                
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             BlackRock, BlackRock                                                 
+             Inc. (Chain 3) Cayman 1 LP                                           
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Cayman West Bay                                           
+             Inc. (Chain 3)                                                       
+                        Finco Limited                                             
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Cayman West Bay                                           
+             Inc. (Chain 3)                                                       
+                        IV Limited                                                
+             BlackRock, BlackRock Group                                           
+             Inc. (Chain 3) Limited                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Finance Europe                                            
+             Inc. (Chain 3)                                                       
+                        Limited                                                   
+                        BlackRock                                                 
+             BlackRock, Investment                                                
+             Inc. (Chain 3) Management (UK)                                       
+                        Limited                                                   
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 4) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 4)                                                       
+                        Management, Inc.                                          
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 4)                                                       
+                        Holdings, Inc.                                            
+                        BR Jersey                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 4)                                                       
+                        Holdings L.P.                                             
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Australia Holdco                                          
+             Inc. (Chain 4)                                                       
+                        Pty. Ltd.                                                 
+                        BlackRock                                                 
+                        Investment                                                
+             BlackRock,                                                           
+                        Management                                                
+             Inc. (Chain 4)                                                       
+                        (Australia)                                               
+                        Limited                                                   
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 5) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 5)                                                       
+                        Management, Inc.                                          
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 5) 4, LLC                                                
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 5) 6, LLC                                                
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Delaware                                                  
+             Inc. (Chain 5)                                                       
+                        Holdings Inc.                                             
+             BlackRock, BlackRock                                                 
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             Inc. (Chain 5) Institutional Trust                                   
+                        Company,                                                  
+                        National                                                  
+                        Association                                               
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 6) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 6)                                                       
+                        Management, Inc.                                          
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 6) 4, LLC                                                
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 6) 6, LLC                                                
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Delaware                                                  
+             Inc. (Chain 6)                                                       
+                        Holdings Inc.                                             
+             BlackRock, BlackRock Fund                                            
+             Inc. (Chain 6) Advisors                                              
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 7) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 7)                                                       
+                        Management, Inc.                                          
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 8) 2, Inc.                                               
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Financial                                                 
+             Inc. (Chain 8)                                                       
+                        Management, Inc.                                          
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 8)                                                       
+                        Holdings, Inc.                                            
+                        BR Jersey                                                 
+             BlackRock,                                                           
+                        International                                             
+             Inc. (Chain 8)                                                       
+                        Holdings L.P.                                             
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 8) 3, LLC                                                
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Canada Holdings                                           
+             Inc. (Chain 8)                                                       
+                        LP                                                        
+                        BlackRock                                                 
+             BlackRock,                                                           
+                        Canada Holdings                                           
+             Inc. (Chain 8)                                                       
+                        ULC                                                       
+                        BlackRock Asset                                           
+             BlackRock,                                                           
+                        Management                                                
+             Inc. (Chain 8)                                                       
+                        Canada Limited                                            
+             BlackRock, BlackRock Holdco                                          
+             Inc. (Chain 9) 2, Inc.                                               
+             BlackRock, BlackRock                                                 
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             Inc. (Chain 9) Financial                                             
+                        Management, Inc.                                          
+             BlackRock, BlackRock Capital                                         
+             Inc. (Chain 9) Holdings, Inc.                                        
+             BlackRock, BlackRock                                                 
+             Inc. (Chain 9) Advisors, LLC                                         
+                                                                                  
+             BlackRock,                                                           
+                        BlackRock Holdco                                          
+             Inc. (Chain                                                          
+                        2, Inc.                                                   
+             10)                                                                  
+             BlackRock, BlackRock                                                 
+             Inc. (Chain Financial                                                
+             10)        Management, Inc.                                          
+             BlackRock, BlackRock                                                 
+             Inc. (Chain International                                            
+             10)        Holdings, Inc.                                            
+             BlackRock, BR Jersey                                                 
+             Inc. (Chain International                                            
+             10)        Holdings L.P.                                             
+             BlackRock,                                                           
+                        BlackRock Holdco                                          
+             Inc. (Chain                                                          
+                        3, LLC                                                    
+             10)                                                                  
+             BlackRock,                                                           
+                        BlackRock                                                 
+             Inc. (Chain                                                          
+                        Cayman 1 LP                                               
+             10)                                                                  
+             BlackRock, BlackRock                                                 
+             Inc. (Chain Cayman West Bay                                          
+             10)        Finco Limited                                             
+             BlackRock, BlackRock                                                 
+             Inc. (Chain Cayman West Bay                                          
+             10)        IV Limited                                                
+             BlackRock,                                                           
+                        BlackRock Group                                           
+             Inc. (Chain                                                          
+                        Limited                                                   
+             10)                                                                  
+             BlackRock, BlackRock                                                 
+             Inc. (Chain Finance Europe                                           
+             10)        Limited                                                   
+             BlackRock, BlackRock                                                 
+             Inc. (Chain Advisors (UK)                                            
+             10)        Limited                                                   
+             10. In case of proxy voting                                          
+              Name  of the proxy holder                                           
+              The number and % of voting rights held                              
+                                                                                  
+              The date until which the voting rights will be held                 
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+             11. Additional Information                                           
+                                                                                  
+              BlackRock Regulatory Threshold Reporting Team                       
+                                                                                  
+              Jana Blumenstein                                                    
+                                                                                  
+              020 7743 3650                                                       
+                                                                                  
+             12. Date of Completion                                               
+                                                                                  
+              19 September 2023                                                   
+             13. Place Of Completion                                              
+                                                                                  
+              12 Throgmorton Avenue, London, EC2N 2DL, U.K.                       
+                                                                                  
+                                                                                  
+          For further information contact:                                        
+                                                                                  
+          Richard Crowle                                                          
+          Senior Assistant Company Secretary                                      
+          Tel: +44 (0)20 7887 1000                                                
+                                                                                  
+          20 September 2023                                                       
+                                                                                  
+          Hammerson has its primary listing on the London Stock Exchange and secondary
+          inward listings on the Johannesburg Stock Exchange and Euronext Dublin. 
+                                                                                  
+          Sponsor: Investec Bank Limited                                          
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                                  

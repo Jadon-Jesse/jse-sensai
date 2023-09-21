@@ -1,0 +1,9 @@
+$(document).ready(function() {
+    InitializeControls();
+})
+
+function InitializeControls() {
+    $(".searchbutton").click(function() {
+        window.location = "/search";
+    })
+}
