@@ -136,22 +136,27 @@
 
           <div class="nav-scroller py-1 mb-3 border-bottom">
             <nav class="nav nav-underline justify-content-between">
-              <a class="nav-item nav-link" href="#">Last Refresh Time:</a>
+              <!-- <a id="test" class="nav-item nav-link" href="#">Last Refresh Time:</a> -->
+              <button id="test" class='btn btn-default'>Last Refresh Time:</button>
+
             </nav>
           </div>
         </div>
 
+        <a href="#" id="test"><button class='btn btn-default'>Test</button></a>
 
 
         <main class="container">
           <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
             <div class="col-lg-12 px-0">
               <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-              <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+              <p class="lead my-3">{{ sensai }}</p>
             </div>
           </div>
 
-          <button  onClick="showModal('hu' , 'ggg' , '1')">Sarcastic</button>
+          <div id="pcont"> </div>
+
+
 
 
           {% for a_file in jse_sens %}
@@ -159,19 +164,15 @@
             <div class="col-md-12">
             <button  onClick='showModal({{ a_file.content | tojson }})'>Sarcastic</button>
 
-              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-500 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                   <strong class="d-inline-block mb-2 text-success-emphasis">
 
                     
                   </strong>
-                  <h3 class="mb-0">{{ a_file.title }}</h3>
+                  <h3 class="mb-0">{{ a_file.title }} | {{ a_file.gpttitle }}</h3>
                   <div class="mb-1 text-body-secondary">{{ a_file.created }}</div>
-                  <p class="mb-auto">{{ a_file.content }}</p>
-                  <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-                    Continue reading
-                    <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-                  </a>
+                  <div class="mb-1 text-body flex-md-row">{{ a_file.gptreview }}</div>
                 </div>
                 <div class="col-auto d-none d-lg-block">
 
@@ -188,7 +189,7 @@
 
 
         <div class="jumbotron">
-            <h1 class="display-4"> Reviewing JSE SENS Announcements @ Peresec </h1>
+            <h1 class="display-4"> Reviewing JSE SENS Announcements</h1>
             <p class="lead"> with Sarcastic AI</p >
 
             <hr class="my-4">
@@ -211,7 +212,6 @@
             <li><a href="/user/edit"><span class="tab">Edit</span></a></li>
         </ul>
 
-        <p id="pcont"> </p>
 
 
         <div>
@@ -234,16 +234,24 @@
 
         <script type="text/javascript">
                 $(function() {
-                  $('a#test').on('click', function(e) {
+                  $('#test').on('click', function(e) {
                     console.log("Button clicked");
                     e.preventDefault()
                     $.getJSON('/background_process_test',
                         function(data) {
                       //do nothing
-                            console.log("called bg function",data);
+                            // console.log("called bg function",data);
                             var dataText = data.data;
-                            console.log(dataText);
-                            $("#pcont").append(dataText);
+                            // console.log(dataText);
+                            // print("PARSED");
+                            // print(obj)
+                            for (var i = dataText.length - 1; i >= 0; i--) {
+                              var item = dataText[i]
+                              const obj = item['gptreview']
+                              console.log(obj);
+                              var p = `<p>${item.title}</p>`;
+                              $("#pcont").append(p);
+                            }
                     });
                     return false;
                   });
