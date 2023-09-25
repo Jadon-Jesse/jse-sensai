@@ -79,3 +79,7 @@
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+
+[data-bs-theme=light] {
+  --bs-body-bg: #fff;
+}

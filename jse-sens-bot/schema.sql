@@ -9,3 +9,10 @@ CREATE TABLE sens (
     gptreview TEXT NOT NULL,
     gpttitle TEXT NOT NULL
 );
+
+CREATE TABLE sens_market_update (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    gpttitle TEXT NOT NULL,
+    gptcontent TEXT NOT NULL
+);
