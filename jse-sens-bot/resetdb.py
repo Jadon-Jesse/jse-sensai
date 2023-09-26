@@ -12,7 +12,7 @@ conn = get_db_connection()
 # Create a cursor object
 cursor = conn.cursor()
 
-posts = conn.execute('SELECT * FROM sens ORDER BY datetime(created) DESC LIMIT 10').fetchall()
+posts = conn.execute('SELECT * FROM sens ORDER BY datetime(created) DESC LIMIT 1').fetchall()
 # Get the last row id
 
 for  post in posts:

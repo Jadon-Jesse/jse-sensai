@@ -22,28 +22,7 @@
 
     </head>
     <body>
-        <div id="alertHolder">
-          
-        </div>
         
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog  modal-xl modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Original SENS Content</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <pre class="modal-body">
-              </pre>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
         <!-- svg assets -->
 
 
@@ -153,6 +132,8 @@
 
 
 
+
+
             </nav>
           </div>
         </div>
@@ -164,226 +145,24 @@
 
 
         <main class="container">
-          <div class="btn-toolbar justify-content-end" role="toolbar" aria-label="Toolbar with button groups">
+          
+          <div>
+            <h1>About</h1>
+            <p>
+              JSE SensAI was created as a hobby project over a weekend to explore 
+              using the GPT API to try and provide review and commentary on the ongoing SENS announcements coming out of the JSE
+              
+            </p>
 
-            <div class="input-group">
-              <button id="test" type="button" class="btn btn-outline-primary">↻</button>
-              <div class="input-group-text" id="test">{{ sensai.created }}</div>
-            </div>
-
-
-          </div>
-          <div class="d-flex justify-content-end">
-          </div>
-          <div class="p-4 p-md-5 mt-3 mb-4 rounded text-body-emphasis bg-body-secondary">
-            <div class="col-lg-12 px-0">
-              <h1 class="display-8 fst-italic">{{ sensai.gpttitle }}</</h1>
-              <p class="lead my-3 ">{{ sensai.gptcontent }}</p>
-            </div>
-          </div>
-
-          <div class="container mb-4">
-            <div class="row flex-nowrap justify-content-around align-items-center">
-
-
-              <div class="btn-group mb-4" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="btnradio1">JSE Headlines</label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio2">AI Headlines</label>
-
-              </div>
-            </div>
-          </div>
-
-          <div id="pcont"> </div>
-
-
-
-
-          {% for a_file in jse_sens %}
-          <div class="row mb-2">
-            <div class="col-md-12">
-
-              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-500 position-relative" >
-                <div class="col p-4 d-flex flex-column position-static">
-                  <strong class="d-inline-block mb-2">
-
-                    <button type="button" class="btn btn-warning btn-sm" onClick='showModal({{ a_file.content | tojson }})'>view original</button>
-                    
-                  </strong>
-                  <div class="jseTitle">
-                    <h3 class="mb-0">{{ a_file.title }} </h3>
-                  </div>
-                  <div class="aiTitle">
-                    <h3 class="mb-0">{{ a_file.gpttitle }}</h3>
-                    
-                  </div>
+            <h1>Contact</h1>
+            <p>
+              Github
+              
+            </p>
             
-                  <div class="mb-2 text-body-secondary">
-                    {{ a_file.created }}
-                  </div>
-                  <div class="mb-0 pl-5 text-body flex-md-row">
-                  <span id="outputSpan{{ loop.index0 }}">
-                    <ul>
-                  {% for par in a_file.gptreview %}
-                    <li>{{ par }}</li>
-                  {% endfor %}
-                    </ul>
-                  </div>
-                  </span>
-
-                  <button type="button" class="mt-1 btn btn-outline-secondary" onclick='sendTextToAPI2({{ a_file.title | tojson }} , {{ a_file.content | tojson }} , "outputSpan{{ loop.index0 }}")'>Generate Trading Signal</button>
-
-
-
-                </div>
-              </div>
-            </div>
           </div>
-          {% endfor %}
 
         </main>
-
-
-
-
-        <script type="text/javascript">
-                $(function() {
-                  $('#test').on('click', function(e) {
-                    console.log("Button clicked");
-                    e.preventDefault()
-                    $.getJSON('/background_process_test',
-                        function(data) {
-                      //do nothing
-                            // console.log("called bg function",data);
-                            var dataText = data.data;
-                            // console.log(dataText);
-                            // print("PARSED");
-                            // print(obj)
-                            var numPosts = dataText.length;
-                            for (var i = dataText.length - 1; i >= 0; i--) {
-                              var item = dataText[i]
-                              const obj = item['gptreview']
-                              console.log(obj);
-                              var p = `<p>${item.title}</p>`;
-                              $("#pcont").append(p);
-                            }
-                            var notif = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                              ${numPosts} announcements fetched
-                            </div>
-                            `;
-                            $("#alertHolder").html(notif);
-
-                    });
-                    return false;
-                  });
-
-                });
-        </script>
-
-        <script>
-          $(document).ready(function() {
-            const jseHeadlines = $("#btnradio1");
-            const aiHeadlines = $("#btnradio2");
-            const jseComponents = $(".jseTitle");
-            const aiComponents = $(".aiTitle");
-
-            var selectedRadioValue = $('input[name="btnradio"]:checked').val();
-            // console.log("Seleceted", selectedRadioValue)
-            if (selectedRadioValue === "on") {
-              console.log("Iniitial render");
-              // jseComponents.show();
-              aiComponents.hide();
-
-            }
-
-            jseHeadlines.on("click", function() {
-              // console.log("Clicked jse", jseComponents);
-              jseComponents.show();
-              aiComponents.hide();
-            });
-
-            aiHeadlines.on("click", function() {
-              // console.log("Clicked ai");
-
-              jseComponents.hide();
-              aiComponents.show();
-            });
-            // $('#btnradio1').click();
-          });
-        </script>
-
-
-
-
-
-
-
-        <script>
-
-            function showModal( bodyText) {
-                console.log("Showing modal for",   bodyText);
-
-                // var modalText = '<p>' + bodyText + '</p>';
-                var modalText = `
-                ${bodyText}
-                `
-                // $("#exampleModal .modal-body").html(modalText);
-                $("#exampleModal .modal-body").text(modalText);
-                // var htmlText = 
-                $("#exampleModal").modal('show'); 
-
-                
-            }
-
-
-
-            function sendTextToAPI2(text, bodyText,  outputSpanId) {
-                var apiFetchObj = Example.pyramid();
-
-                var textClean = text.replace(/["']/g, "");
-                var bodyTextClean = bodyText.replace(/["']/g, "");
-
-
-                var sNims = `You are a serious equities trader who is always looking to the current news to find tradable signals. Your job is to identify high quality trading signals in the following SENS announcement from the JSE:
-                    '''
-                    <title>
-                    ${textClean}
-                    </title>
-                    <body>
-                    ${bodyTextClean}
-                    </body>
-                    '''
-                `
-                console.log("Prompt:", sNims);
-
-                var payload = { 
-                    model: "gpt-4",
-                    messages: [{"role": "user", "content": sNims}],
-                    temperature: 0.3
-                };
-
-                var onCompletion = function(response) {
-                    console.log(response);
-                    // Assuming the desired content is in response.data.choices[0].message.content
-                     // Adjust as necessary based on the structure of your API response.
-                     document.getElementById(outputSpanId).innerText = response.data.choices[0].message.content;
-                };
-                
-                var onError = function(response, body) {
-                    console.error(response, body);
-                };
-
-                const apiKey = "sk-";
-
-
-                apiFetchObj.apiPost(payload, apiKey, onCompletion, onError);
-            }
-
-        </script>
-
 
         <script src="/jse-sens-bot/static/js/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 

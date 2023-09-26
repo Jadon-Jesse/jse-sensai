@@ -50,11 +50,6 @@ from text_to_par import split_into_sentences
 
 
 
-class SensAI(BaseModel):
-    gpt_title: str
-    gpt_review: str
-
-
 
 # HOST = os.environ.get("APP1_HOST_IP")
 HOST = APP_HOST_IP
@@ -68,30 +63,6 @@ stor_pth_hist.mkdir(parents = True, exist_ok = True)
 
 app = Flask(__name__, static_url_path = "/jse-sens-bot/static")
 
-# _js_escapes = {
-#         '\\': '\\u005C',
-#         '\'': '\\u0027',
-#         '"': '\\u0022',
-#         '>': '\\u003E',
-#         '<': '\\u003C',
-#         '&': '\\u0026',
-#         '=': '\\u003D',
-#         '-': '\\u002D',
-#         ';': '\\u003B',
-#         u'\u2028': '\\u2028',
-#         u'\u2029': '\\u2029'
-# }
-# # Escape every ASCII character with a value less than 32.
-# _js_escapes.update(('%c' % z, '\\u%04X' % z) for z in range(32))
-# def jinja2_escapejs_filter(value):
-#         retval = []
-#         for letter in value:
-#                 if _js_escapes.has_key(letter):
-#                         retval.append(_js_escapes[letter])
-#                 else:
-#                         retval.append(letter)
-
-#         return jinja2.Markup("".join(retval))
         
 app.config['SECRET_KEY'] = 'secret!'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -173,7 +144,7 @@ def clean_str(dirty):
 
 def build_sensai_go_title_review(row_id, title, body):
     prompt = f"""
-You are the head of global markets for RMB. You are extremely witty, cleaver and everyone thinks you're hilarious. You love coming up with funny and attention grabbing titles for articles based on the article content, and it's original name. Your job is to come up with a more witty, meaninful and less verbose title based off the following article's contents and original title:
+You are the head of global markets for RMB. You are extremely witty, cleaver and everyone thinks you're hilarious. You love coming up with funny and attention grabbing titles for articles based on the article content, and it's original name. Your job is to come up with a more witty, meaningful and less verbose title based off the following article's contents and original title:
 ```
 <originalTitle>
 {title}
@@ -198,7 +169,7 @@ You are the head of global markets for RMB. You are extremely witty, cleaver and
     row_req = {
         "model": "gpt-3.5-turbo",
         "messages": msg_request_list,
-        "temperature":0,
+        "temperature":0.3,
         "metadata": msg_meta
     }
 
@@ -232,7 +203,7 @@ You are the head of global markets for Peresec Capital. You have made a lot of m
     row_req = {
         "model": "gpt-3.5-turbo",
         "messages": msg_request_list,
-        "temperature":0.9,
+        "temperature":0.3,
         "metadata": msg_meta
     }
 
@@ -311,7 +282,7 @@ You are the lead editor for the daily financial report. You are renowned world w
         # "model": "gpt-4",
         "model": "gpt-3.5-turbo",
         "messages": msg_request_list,
-        "temperature":0.9,
+        "temperature":0.3,
         "metadata": msg_meta
     }
 
@@ -493,7 +464,7 @@ def background_process_test():
 
 
     print("async Hello")
-    # scrape_sel_edge_to_db()
+    scrape_sel_edge_to_db()
     print("selecting sens")
 
     sens_articles = select_sens_to_ai()
@@ -525,7 +496,9 @@ def background_process_test():
 
     filejs_out = Path.cwd() / Path("temp_out.jsonl")
 
-    # results = run_gpt_async(filejs, filejs_out)
+    results = run_gpt_async(filejs, filejs_out)
+    results_sens = results.result()
+
 
     print("Done running gpt async 1")
 
@@ -768,17 +741,24 @@ def get_latest_sens_for_market_update():
 
 def get_sens():
     conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM sens ORDER BY datetime(created) DESC').fetchall()
+    today = datetime.date.today()
+    previous_working_day = today - datetime.timedelta(days=1)
+    if previous_working_day.weekday() > 4:  # If the previous day is Saturday or Sunday, go back to Friday
+        previous_working_day -= datetime.timedelta(days=previous_working_day.weekday() - 4)
+
+    # Format the start of the previous working day as a datetime string
+    start_of_previous_working_day = datetime.datetime.combine(previous_working_day, datetime.time())
+    posts = conn.execute('SELECT * FROM sens WHERE created > ? ORDER BY datetime(created) DESC', (start_of_previous_working_day, )).fetchall()
 
     # brek up sentences into paragraphs
     ls_posts = []
     for p in posts:
         row = dict(p)
         paragraphs = split_into_sentences(row['gptreview'])
-        print("OG")
-        print(row["gptreview"])
-        print("PARA")
-        print(paragraphs)
+        # print("OG")
+        # print(row["gptreview"])
+        # print("PARA")
+        # print(paragraphs)
         row["gptreview"] = paragraphs
         ls_posts.append(row)
 
@@ -802,6 +782,15 @@ def hello_world():
     # print(sens)
     # return render_template('index.html', jse_sens = sens, sensai=sensai)
     return render_template('index.html', jse_sens = sens, sensai=market_update)
+
+
+@app.route("/about")
+def about():
+    # stored_announcements = get_stored_announcements()
+    print(f"About page")
+    return render_template('about.html')
+
+
 
 
 if __name__ == '__main__':
