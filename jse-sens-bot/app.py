@@ -472,7 +472,7 @@ def background_process_test():
 
 
     print("async Hello")
-    # scrape_sel_edge_to_db()
+    scrape_sel_edge_to_db()
     print("selecting sens")
 
     sens_articles = select_sens_to_ai()
