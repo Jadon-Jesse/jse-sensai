@@ -45,7 +45,7 @@ import datetime
 # import re
 from text_to_par import split_into_sentences
 # from nltk import tokenize
-
+import tiktoken
 
 
 
@@ -63,11 +63,13 @@ stor_pth_hist.mkdir(parents = True, exist_ok = True)
 
 app = Flask(__name__, static_url_path = "/jse-sens-bot/static")
 
-        
+
 app.config['SECRET_KEY'] = 'secret!'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 # app.jinja_env.filters['json'] = jinja2_escapejs_filter
+# app.jinja_env.filters['test_call'] = test_func
 # socketio = SocketIO(app, path="/jse-sens-bot/socket.io/")
+
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -178,7 +180,7 @@ You are the head of global markets for RMB. You are extremely witty, cleaver and
 
 def build_sensai_go_review(row_id, title, body):
     prompt = f"""
-You are the head of global markets for Peresec Capital. You have made a lot of money throughout your career and you are always looking for opportunities to examine and critique the current news. You are also extremely funny you and love to make jokes about current events and announcements when you find the right moment for a hilarious punchline. Your job is to provide a 10 line summery of the following SENS announcement from the JSE:
+You are the head of global market research for large south african hedge fund. You have made a lot of money throughout your career and you are always looking for opportunities to examine and critique the current news. You are also extremely sarcastic and love to brag about your time trading whenever you find the right moment. Your job is to provide a 10 line summery of the following SENS announcement from the JSE
 
 '''
 <title>
@@ -203,7 +205,7 @@ You are the head of global markets for Peresec Capital. You have made a lot of m
     row_req = {
         "model": "gpt-3.5-turbo",
         "messages": msg_request_list,
-        "temperature":0.3,
+        "temperature":0.7,
         "metadata": msg_meta
     }
 
@@ -223,7 +225,7 @@ def build_sensai_go_market_upate(sens):
     h = "\n ".join(headlines)
 
     prompt = f"""
-You are an an award winning satirical comedian and financial news reporter. You are extremely witty, cleaver and everyone thinks you're hilarious. Your job is to provide traders with a no more than 10 line market update describing whats been going on in the markets so far today. You should also try to identify hidden connections between various events that seem to be logically connected but may not be so obvious. Your market update should be succinct and will be based on the following highlights:
+You are an an award winning satirical comedian and financial news reporter. You are extremely cleaver and everyone thinks you're hilarious. Your job is to provide traders with a no more than 10 line market update describing whats been going on in the markets so far today. You should also try to identify hidden connections between various events that seem to be logically connected but may not be so obvious. Your market update should be succinct and will be based on the following highlights:
 '''
 {h}
 '''
@@ -429,6 +431,12 @@ def run_gpt_async(in_jsonl, out_jsonl):
     return results
 
 
+def num_tokens_from_string(string: str, encoding_name: str) -> int:
+    """Returns the number of tokens in a text string."""
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
+
 
 
 @app.route('/background_process_test')
@@ -464,7 +472,7 @@ def background_process_test():
 
 
     print("async Hello")
-    scrape_sel_edge_to_db()
+    # scrape_sel_edge_to_db()
     print("selecting sens")
 
     sens_articles = select_sens_to_ai()
@@ -474,12 +482,18 @@ def background_process_test():
     # build up prompts and save to json l file
     # todo lock thread access
     for article in sens_articles:
-        row_request_obj_contet = build_sensai_go_review(article["id"], article["title"], article["content"])
-        row_request_obj_title = build_sensai_go_title_review(article["id"], article["title"], article["content"])
-        jobs.append(row_request_obj_contet)
-        jobs.append(row_request_obj_title)
+        num_tokens = num_tokens_from_string(article["content"], "cl100k_base")
+        print(article["title"])
 
-        new_ids.append(article['id'])
+        print(f"NUM Tokens: {num_tokens}")
+        if num_tokens < 4097:
+            # print(article["title"])
+            row_request_obj_contet = build_sensai_go_review(article["id"], article["title"], article["content"])
+            row_request_obj_title = build_sensai_go_title_review(article["id"], article["title"], article["content"])
+            jobs.append(row_request_obj_contet)
+            jobs.append(row_request_obj_title)
+
+            new_ids.append(article['id'])
 
 
     # save as json l for the next step
@@ -781,7 +795,7 @@ def hello_world():
     # sensai = get_sensai(sens)
     # print(sens)
     # return render_template('index.html', jse_sens = sens, sensai=sensai)
-    return render_template('index.html', jse_sens = sens, sensai=market_update)
+    return render_template('index.html', jse_sens = sens, sensai=market_update, apiKey = API_KEY)
 
 
 @app.route("/about")
@@ -790,6 +804,7 @@ def about():
     print(f"About page")
     return render_template('about.html')
 
+        
 
 
 

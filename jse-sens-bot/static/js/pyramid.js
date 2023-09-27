@@ -1,12 +1,6 @@
 var Example = Example || {};
 
 Example.pyramid = function() {
-
-    console.log("Doing some stuff");
-
-
-
-
     // context for MatterTools.Demo
     return {
         stuff: "hello",
