@@ -478,236 +478,236 @@ def background_process_test():
     scrape_sel_edge_to_db()
     print("selecting sens")
 
-    # sens_articles = select_sens_to_ai()
-    # jobs = []
-    # new_ids = []
+    sens_articles = select_sens_to_ai()
+    jobs = []
+    new_ids = []
 
-    # # build up prompts and save to json l file
-    # # todo lock thread access
-    # for article in sens_articles:
-    #     num_tokens = num_tokens_from_string(article["content"], "cl100k_base")
-    #     print(article["title"])
+    # build up prompts and save to json l file
+    # todo lock thread access
+    for article in sens_articles:
+        num_tokens = num_tokens_from_string(article["content"], "cl100k_base")
+        print(article["title"])
 
-    #     print(f"NUM Tokens: {num_tokens}")
-    #     if num_tokens < 4097:
-    #         # print(article["title"])
-    #         row_request_obj_contet = build_sensai_go_review(article["id"], article["title"], article["content"])
-    #         row_request_obj_title = build_sensai_go_title_review(article["id"], article["title"], article["content"])
-    #         jobs.append(row_request_obj_contet)
-    #         jobs.append(row_request_obj_title)
+        print(f"NUM Tokens: {num_tokens}")
+        if num_tokens < 4097:
+            # print(article["title"])
+            row_request_obj_contet = build_sensai_go_review(article["id"], article["title"], article["content"])
+            row_request_obj_title = build_sensai_go_title_review(article["id"], article["title"], article["content"])
+            jobs.append(row_request_obj_contet)
+            jobs.append(row_request_obj_title)
 
-    #         new_ids.append(article['id'])
-
-
-    # # save as json l for the next step
-    # filejs = Path.cwd() / Path("temp.jsonl")
-    # with open(filejs, "w") as f:
-    #     for job in jobs:
-    #         json_string = json.dumps(job)
-    #         f.write(json_string + "\n")
+            new_ids.append(article['id'])
 
 
-
-
-    # print("trying to run async io ev loop in thread")
-
-    # filejs_out = Path.cwd() / Path("temp_out.jsonl")
-
-    # results = run_gpt_async(filejs, filejs_out)
-    # results_sens = results.result()
-
-
-    # print("Done running gpt async 1")
-
-
-    # # now load back in the results that we just processed
-    # json_list = []
-    # with open(filejs_out, 'r') as json_file:
-    #     json_list = list(json_file)
-
-
-    # print("loaded")
-    # connection = get_db_connection()
-    # for json_str in json_list:
-    #     result = json.loads(json_str)
-    #     # print(f"result: {result}")
-    #     og_request = result[0]
-    #     response = result[1]
-    #     meta = result[2]
-    #     # print("Request")
-    #     # print(og_request)
-
-    #     # print("Response")
-    #     # print(response)
-
-    #     # print("Meta")
-    #     # print(meta)
-
-
-    #     # clean up response and add to look up dict
-
-    #     # lines = content.split("\n")
-
-
-    #     clean_text = ""
-
-    #     try:
-    #         content = response['choices'][0]['message']['content']
-    #         # print(content)
-    #         # remove double quotes at start and end if exists
-    #         no_dblquotes = content.strip('"')
-    #         # remove single quotes at start and end if exists
-    #         no_quotes = no_dblquotes.strip("'")
-    #         # remove trailing white space
-    #         clean_text = no_quotes.strip()
-
-    #         if meta['row_type'] == "review":
-
-    #             # save to db
-    #             print("saving ai review to db")
-
-
-    #             cur = connection.cursor()
-
-
-    #             cur.execute("UPDATE sens SET gptreview = ? WHERE id = ?",
-    #                 (content, meta['row_id'])
-    #             )
-    #             connection.commit()
-
-    #         if meta['row_type'] == "title":
-
-    #             # save to db
-    #             print("saving ai title to db")
-
-
-    #             cur = connection.cursor()
-
-
-    #             cur.execute("UPDATE sens SET gpttitle = ? WHERE id = ?",
-    #                 (content, meta['row_id'])
-    #             )
-    #             connection.commit() 
-
-
-    #     except Exception as e:
-    #         # removed fancy stuff
-    #         print(e)
-    #         clean_text = ""
-
-
-    # connection.close()
-
-    # # lastly get the uppdated sens
-    # sens = get_sens_byids(new_ids)
-
-    # ls_holder = []
-    # for s in sens:
-    #     d = dict(s)
-    #     print(d)
-    #     ls_holder.append(d)
+    # save as json l for the next step
+    filejs = Path.cwd() / Path("temp.jsonl")
+    with open(filejs, "w") as f:
+        for job in jobs:
+            json_string = json.dumps(job)
+            f.write(json_string + "\n")
 
 
 
-    # # GENERATE MARKET UPDATE based on all announcements for today up to now
+
+    print("trying to run async io ev loop in thread")
+
+    filejs_out = Path.cwd() / Path("temp_out.jsonl")
+
+    results = run_gpt_async(filejs, filejs_out)
+    results_sens = results.result()
 
 
-    # latest_sens_titles_for_mktupdate = get_latest_sens_for_market_update()
-
-    # for mkrow in latest_sens_titles_for_mktupdate:
-    #     print(f"Days title: {mkrow['gpttitle']}")
-
-    # # every market update review will be a single job
-    # market_update_row_job_obj = build_sensai_go_market_upate(latest_sens_titles_for_mktupdate)
-    # # also build job to title based on same ai titles
-    # title_market_update_row_job_obj = build_sensai_go_title_market_upate(latest_sens_titles_for_mktupdate)
-
-    # ls_market_update_jobs = [market_update_row_job_obj, title_market_update_row_job_obj]
-
-    # # Now also save the mkupdate jobs to jsonl file for past processing
-    # filejs_mkudpt = Path.cwd() / Path("temp_mkudpt.jsonl")
-    # with open(filejs_mkudpt, "w") as f:
-    #     for job in ls_market_update_jobs:
-    #         json_string = json.dumps(job)
-    #         f.write(json_string + "\n")
+    print("Done running gpt async 1")
 
 
-    # # cool now again, paralell process again for the market update
-    # filejs_mkudpt_out = Path.cwd() / Path("temp_mkudpt_out.jsonl")
+    # now load back in the results that we just processed
+    json_list = []
+    with open(filejs_out, 'r') as json_file:
+        json_list = list(json_file)
+
+
+    print("loaded")
+    connection = get_db_connection()
+    for json_str in json_list:
+        result = json.loads(json_str)
+        # print(f"result: {result}")
+        og_request = result[0]
+        response = result[1]
+        meta = result[2]
+        # print("Request")
+        # print(og_request)
+
+        # print("Response")
+        # print(response)
+
+        # print("Meta")
+        # print(meta)
+
+
+        # clean up response and add to look up dict
+
+        # lines = content.split("\n")
+
+
+        clean_text = ""
+
+        try:
+            content = response['choices'][0]['message']['content']
+            # print(content)
+            # remove double quotes at start and end if exists
+            no_dblquotes = content.strip('"')
+            # remove single quotes at start and end if exists
+            no_quotes = no_dblquotes.strip("'")
+            # remove trailing white space
+            clean_text = no_quotes.strip()
+
+            if meta['row_type'] == "review":
+
+                # save to db
+                print("saving ai review to db")
+
+
+                cur = connection.cursor()
+
+
+                cur.execute("UPDATE sens SET gptreview = ? WHERE id = ?",
+                    (content, meta['row_id'])
+                )
+                connection.commit()
+
+            if meta['row_type'] == "title":
+
+                # save to db
+                print("saving ai title to db")
+
+
+                cur = connection.cursor()
+
+
+                cur.execute("UPDATE sens SET gpttitle = ? WHERE id = ?",
+                    (content, meta['row_id'])
+                )
+                connection.commit() 
+
+
+        except Exception as e:
+            # removed fancy stuff
+            print(e)
+            clean_text = ""
+
+
+    connection.close()
+
+    # lastly get the uppdated sens
+    sens = get_sens_byids(new_ids)
+
+    ls_holder = []
+    for s in sens:
+        d = dict(s)
+        print(d)
+        ls_holder.append(d)
+
+
+
+    # GENERATE MARKET UPDATE based on all announcements for today up to now
+
+
+    latest_sens_titles_for_mktupdate = get_latest_sens_for_market_update()
+
+    for mkrow in latest_sens_titles_for_mktupdate:
+        print(f"Days title: {mkrow['gpttitle']}")
+
+    # every market update review will be a single job
+    market_update_row_job_obj = build_sensai_go_market_upate(latest_sens_titles_for_mktupdate)
+    # also build job to title based on same ai titles
+    title_market_update_row_job_obj = build_sensai_go_title_market_upate(latest_sens_titles_for_mktupdate)
+
+    ls_market_update_jobs = [market_update_row_job_obj, title_market_update_row_job_obj]
+
+    # Now also save the mkupdate jobs to jsonl file for past processing
+    filejs_mkudpt = Path.cwd() / Path("temp_mkudpt.jsonl")
+    with open(filejs_mkudpt, "w") as f:
+        for job in ls_market_update_jobs:
+            json_string = json.dumps(job)
+            f.write(json_string + "\n")
+
+
+    # cool now again, paralell process again for the market update
+    filejs_mkudpt_out = Path.cwd() / Path("temp_mkudpt_out.jsonl")
     
-    # print("runng market update async")
-    # future_results_mkupdt = run_gpt_async(filejs_mkudpt, filejs_mkudpt_out)
-    # results_mkupdt = future_results_mkupdt.result()
-    # print("done market update async. Loading")
+    print("runng market update async")
+    future_results_mkupdt = run_gpt_async(filejs_mkudpt, filejs_mkudpt_out)
+    results_mkupdt = future_results_mkupdt.result()
+    print("done market update async. Loading")
 
-    # json_list_mkupdt = []
-    # with open(filejs_mkudpt_out, 'r') as json_file:
-    #     json_list_mkupdt = list(json_file)
-
-
-
-
-    # market_update_review = ""
-    # market_update_title = ""
-
-
-    # for json_str in json_list_mkupdt:
-    #     result = json.loads(json_str)
-    #     # print(f"result: {result}")
-    #     og_request = result[0]
-    #     response = result[1]
-    #     meta = result[2]
-    #     print("Request")
-    #     print(og_request)
-
-    #     print("Response")
-    #     print(response)
-
-    #     print("Meta")
-    #     print(meta)
-
-
-    #     try:
-    #         content = response['choices'][0]['message']['content']
-    #         # print(content)
-    #         # remove double quotes at start and end if exists
-    #         no_dblquotes = content.strip('"')
-    #         # remove single quotes at start and end if exists
-    #         no_quotes = no_dblquotes.strip("'")
-    #         # remove trailing white space
-    #         clean_text = no_quotes.strip()
+    json_list_mkupdt = []
+    with open(filejs_mkudpt_out, 'r') as json_file:
+        json_list_mkupdt = list(json_file)
 
 
 
-    #         if meta['row_type'] == "market_update_review":
 
-    #             # save to db
-    #             print("saving ai review to db")
-    #             market_update_review = content
-
-    #         if meta['row_type'] == "market_update_title":
-
-    #             market_update_title = content
-
-    #     except Exception as e:
-    #         # removed fancy stuff
-    #         print(e)
-
-    # # now insert the latest market update into the database
-    # print(f"MKTITLE: {market_update_title} - -{market_update_review}")
-
-    # # Insert into db - dont need to link right now
-    # # cause we can just always grab the latest one 
-
-    # connection = get_db_connection()
-    # cur = connection.cursor()
+    market_update_review = ""
+    market_update_title = ""
 
 
+    for json_str in json_list_mkupdt:
+        result = json.loads(json_str)
+        # print(f"result: {result}")
+        og_request = result[0]
+        response = result[1]
+        meta = result[2]
+        print("Request")
+        print(og_request)
 
-    # cur.execute("INSERT INTO sens_market_update (gpttitle, gptcontent) VALUES (?, ?)",
-    #             (market_update_title, market_update_review))
-    # connection.commit()
-    # connection.close()
+        print("Response")
+        print(response)
+
+        print("Meta")
+        print(meta)
+
+
+        try:
+            content = response['choices'][0]['message']['content']
+            # print(content)
+            # remove double quotes at start and end if exists
+            no_dblquotes = content.strip('"')
+            # remove single quotes at start and end if exists
+            no_quotes = no_dblquotes.strip("'")
+            # remove trailing white space
+            clean_text = no_quotes.strip()
+
+
+
+            if meta['row_type'] == "market_update_review":
+
+                # save to db
+                print("saving ai review to db")
+                market_update_review = content
+
+            if meta['row_type'] == "market_update_title":
+
+                market_update_title = content
+
+        except Exception as e:
+            # removed fancy stuff
+            print(e)
+
+    # now insert the latest market update into the database
+    print(f"MKTITLE: {market_update_title} - -{market_update_review}")
+
+    # Insert into db - dont need to link right now
+    # cause we can just always grab the latest one 
+
+    connection = get_db_connection()
+    cur = connection.cursor()
+
+
+
+    cur.execute("INSERT INTO sens_market_update (gpttitle, gptcontent) VALUES (?, ?)",
+                (market_update_title, market_update_review))
+    connection.commit()
+    connection.close()
 
 
 
