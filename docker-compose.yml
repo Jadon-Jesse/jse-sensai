@@ -6,6 +6,8 @@ services:
     command: ["python", "app.py"]
     ports:
       - 8000:8000
+    volumes:
+      - ./jse-sens-bot:/app
 
   nginx:
     image: nginx:latest
